@@ -3,9 +3,20 @@
 }
 
 .map-canvas path {
-    stroke-width: 1.5px;
+    stroke-width: 1px;
     stroke-linecap: round;
     stroke-linejoin: round;
+}
+
+@media only screen and (max-width: 600px) {
+    button.MuiButtonBase-root {
+        font-size: 12px;
+    }
+}
+
+.canvas {
+    margin: 0px auto;
+    max-width: 900px;
 }
 
 .map-canvas {
@@ -13,11 +24,11 @@
     color: #fff;
 }
 .css-14iddyj-MuiButtonBase-root-MuiToggleButton-root {
-    color: #537990
+    color: #537990;
 }
 
 circle {
-    stroke-width: 1.5px;
+    stroke-width: 1px;
     stroke: #A6B2BA;
 }
 
@@ -37,7 +48,6 @@ input[type="range"] {
 html,
 body {
     color: #04273c;
-    margin: 20px;
     font-family:
         '-apple-system',
         'BlinkMacSystemFont',

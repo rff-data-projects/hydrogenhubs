@@ -21,11 +21,9 @@ const App = () => {
             tonalOffset: 0.5,
         },
         components: {
-            // Name of the component ⚛️
             MuiButtonBase: {
                 defaultProps: {
-                    // The props to apply
-                    disableRipple: true, // No more ripple, on the whole application 💣!
+                    disableRipple: true
                 },
             },
         },
@@ -55,12 +53,23 @@ const App = () => {
 
     /* - - - - Dynamic canvas width - - - - */
 
-    const [canvasHeight, setCanvasHeight] = useState(window.innerWidth * 0.8)
-    const [canvasWidth, setCanvasWidth] = useState(window.innerWidth - 10)
+    let initialWindow = window.innerWidth
+    if (initialWindow > 900) {
+        initialWindow = 900
+    }
+    const mapRatio = 0.72
+
+    const [canvasHeight, setCanvasHeight] = useState(initialWindow * mapRatio)
+    const [canvasWidth, setCanvasWidth] = useState(initialWindow)
 
     const handleWindowResize = () => {
-        setCanvasWidth(window.innerWidth - 10)
-        setCanvasHeight(window.innerWidth * 0.8) //adjust as needed
+        if (window.innerWidth > 900) {
+            setCanvasWidth(900)
+            setCanvasHeight(900 * mapRatio) //adjust as needed
+        } else {
+            setCanvasWidth(window.innerWidth)
+            setCanvasHeight(window.innerWidth * mapRatio) //adjust as needed
+        }
     };
 
     useEffect(() => {
@@ -236,7 +245,7 @@ const App = () => {
 
                     </div>
                     <div className='canvas'>
-                        <svg width={canvasWidth-40} height={canvasHeight} className='map-canvas'>
+                        <svg width={canvasWidth - 40} height={canvasHeight} className='map-canvas'>
                             <g>
                                 {theMap}
                             </g>
