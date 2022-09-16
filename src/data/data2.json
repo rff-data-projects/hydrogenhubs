@@ -1,0 +1,23 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-142267.96147780973,-1080877.0602778797]},"properties":{"name":"Texas Gulf Coast Hub - Port of Corpus Christie","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-538928.5482111102,-756894.7783419997]},"properties":{"name":"Texas Gulf Coast Hub - Production Area","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-441723.95185419795,1147542.3355712635]},"properties":{"name":"Great Plains Hydrogen Hub - MHA Nation","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-440093.9480835347,1111215.2701965633]},"properties":{"name":"Great Plains Hydrogen Hub - Repurposed Great Plains Synfuels Plant","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-1412828.795951487,272239.99819936627]},"properties":{"name":"HyDeal LA - Storage Sites","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-2018178.0238369955,-145693.95899251086]},"properties":{"name":"HyDeal LA - Offtaker Area","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-1794275.1286453377,1153041.6528375621]},"properties":{"name":"Obsidian Pacific Northwest Hydrogen Hub - Production Area A","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-1760531.4623991963,1291317.137721001]},"properties":{"name":"Obsidian Pacific Northwest Hydrogen Hub - Production Area B","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-208118.987983696,-1133109.0697647433]},"properties":{"name":"Hydrogen City - Storage","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-241203.80026262815,-1133130.1518709396]},"properties":{"name":"Hydrogen City - Production","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-151335.16867182523,-1086905.0623127352]},"properties":{"name":"Hydrogen City - Offtakers (Corpus Christie)","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-150640.32986846977,-1285459.9162667363]},"properties":{"name":"Hydrogen City - Offtakers (Brownsville)","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[1064068.9350744125,531988.559156688]},"properties":{"name":"Midwest Nuclear Hydrogen Hub","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[1241371.274728565,191936.812618465]},"properties":{"name":"West Virginia Hydrogen Hub Coalition","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[1601735.8586408016,472318.28872273007]},"properties":{"name":"Pennsylvania Hydrogen Hub","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[1098646.0276730056,351811.82806670485]},"properties":{"name":"Ohio Clean Energy Hub Alliance","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-2168981.2418501163,361436.72100937704]},"properties":{"name":"Northern California Hydrogen Hub (Hydrogen to Infinity Study)","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-2041457.2627463543,1321282.0854350484]},"properties":{"name":"Centralia Hub","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[60915.83560169771,-863788.1377341619]},"properties":{"name":"Houston Hydrogen Hub","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[1483200.3580889227,-1043849.4334658182]},"properties":{"name":"FPL Cavendish NextGen Hydrogen Hub","hub":true}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[499943.44374121464,141578.97036659715]},"properties":{"name":"St. Louis Hydrogen Hub","hub":true}}
+]}
