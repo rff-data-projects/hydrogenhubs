@@ -147,7 +147,12 @@ const App = () => {
                 } else if (value == "false") {
                     fill = '#ff6663'
                 } else {
-                    fill = '#ffffff00'
+                    console.log(feature.properties)
+                    if (feature.properties.hub == true) {
+                        fill = '#A6B2BA'
+                    } else {
+                        fill = '#ffffff00'
+                    }
                     //null
                 }
                 return (
