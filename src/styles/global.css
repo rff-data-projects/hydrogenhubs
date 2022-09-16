@@ -10,9 +10,15 @@
 
 .map-canvas {
     border: none;
-    border-color: #fff;
     color: #fff;
-    background-color: "#D37506";
+}
+.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root {
+    color: #537990
+}
+
+circle {
+    stroke-width: 1.5px;
+    stroke: #A6B2BA;
 }
 
 select#variable {
@@ -31,7 +37,7 @@ input[type="range"] {
 html,
 body {
     color: #04273c;
-    margin: 0;
+    margin: 20px;
     font-family:
         '-apple-system',
         'BlinkMacSystemFont',

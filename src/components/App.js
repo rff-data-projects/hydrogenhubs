@@ -55,12 +55,12 @@ const App = () => {
 
     /* - - - - Dynamic canvas width - - - - */
 
-    const [canvasHeight, setCanvasHeight] = useState(600)
+    const [canvasHeight, setCanvasHeight] = useState(window.innerWidth * 0.8)
     const [canvasWidth, setCanvasWidth] = useState(window.innerWidth - 10)
 
     const handleWindowResize = () => {
         setCanvasWidth(window.innerWidth - 10)
-        setCanvasHeight(window.innerWidth * 0.7) //adjust as needed
+        setCanvasHeight(window.innerWidth * 0.8) //adjust as needed
     };
 
     useEffect(() => {
@@ -85,7 +85,7 @@ const App = () => {
         // adjust projection to fit area of map canvas
         projection
             .fitSize(
-                [canvasWidth, canvasHeight], mapData
+                [canvasWidth - 40, canvasHeight], mapData
             )
         return projection
     }
@@ -137,8 +137,8 @@ const App = () => {
             }
 
 
-            let fill = ''
-            let stroke = '#dddddd'
+            let fill = '#A6B2BA'
+            let stroke = '#A6B2BA'
             //geometry.type="Point" or "LineString" or "Polygon"
 
             if (feature.geometry.type == 'Polygon' || feature.geometry.type == 'MultiPolygon') {
@@ -162,7 +162,7 @@ const App = () => {
                 } else if (value == "false") {
                     stroke = '#ff6663'
                 } else {
-                    stroke = '#eeeeee'
+                    stroke = '#A6B2BA'
                     //null
                 }
                 return (
@@ -176,7 +176,7 @@ const App = () => {
                 } else if (value == "false") {
                     fill = '#ff6663'
                 } else {
-                    fill = '#eeeeee'
+                    fill = '#A6B2BA'
                     //null
                 }
                 const [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
@@ -226,12 +226,12 @@ const App = () => {
                             <ToggleButton value="End Uses: Industry">Industry</ToggleButton>
                             <ToggleButton value="End Uses: Transportation">Transportation</ToggleButton>
                             <ToggleButton value="End Uses: Power">Power</ToggleButton>
-                            <ToggleButton value="End Uses: Residential and Commercial Heating">Residential and Commercial Heating</ToggleButton>
+                            <ToggleButton value="End Uses: Residential and Commercial Heating">Residential + Commercial Heating</ToggleButton>
                         </ToggleButtonGroup>
 
                     </div>
                     <div className='canvas'>
-                        <svg width={canvasWidth} height={canvasHeight} className='map-canvas'>
+                        <svg width={canvasWidth-40} height={canvasHeight} className='map-canvas'>
                             <g>
                                 {theMap}
                             </g>
