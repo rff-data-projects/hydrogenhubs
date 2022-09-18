@@ -6,6 +6,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { ToggleButton } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { ToggleButtonGroup } from '@mui/material'
+import { handleMouseOver, handleMouseOut, handleMouseMove } from './Tooltip.js'
 import { svg } from 'd3'
 
 const App = () => {
@@ -46,7 +47,7 @@ const App = () => {
     /* - - - - Map data - - - - */
 
     const mapUrl = 'https://gist.githubusercontent.com/rossvdl/9600f80857b96b468ae0e935f0e2cb46/raw/8ae898e1e50299e8d7b9ebcd72489e6c9ae27caf/rffhydrogenhubsmap.json'
-    const raw_csv = 'https://gist.githubusercontent.com/rossvdl/c068ecac72897fae73f0b89a4df0a6f6/raw/c423107704bae2d4e57c4bfb2ece2a87732785c3/data.csv'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/4bba63b11cc93522e6eee71ef50ebdc0/raw/d6932020644290878fa7dcfd028c0650481edbda/hhdata.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
@@ -79,11 +80,10 @@ const App = () => {
 
     /* - - - - Toggle element - - - - */
 
-    const [mapVariable, setMapVariable] = useState('Feedstock: Nuclear')
+    const [mapVariable, setMapVariable] = useState('Feedstock: Renewables')
 
     const handleChange = (e, newValue) => {
         setMapVariable(newValue)
-        console.log('change')
     }
     /* - - - - Map projection - - - - */
 
@@ -114,10 +114,10 @@ const App = () => {
             });
         })
 
-        // d3.select("body")
-        //     .append("div")
-        //     .attr("id", "tooltip")
-        //     .attr("style", "position: absolute; display: none");
+        d3.select("body")
+            .append("div")
+            .attr("id", "tooltip")
+            .attr("style", "position: absolute; display: none")
     }, [])
 
     if (mapData.loading || !data) {
@@ -139,66 +139,85 @@ const App = () => {
 
             let value = data.filter(e => e['code'] == feature.properties['code'])
 
+            let tooltipValues = ''
+            
+            //Check if there's data (if not, it's basemap, and set data to null)
             if (value[0]) {
+
+                console.log(value[0][mapVariable])
+
+                //Create tooltip values
+                tooltipValues =
+                {
+                    "name": feature.properties.name,
+                    "variableName": mapVariable,
+                    "value": value[0][mapVariable],
+                    "description": value[0]['Description']
+                }
+
                 value = value[0][mapVariable]
             } else {
                 value = null
-            }
+            }            
 
-
+            //Fill and stroke default values
             let fill = '#A6B2BA'
             let stroke = '#A6B2BA'
-            //geometry.type="Point" or "LineString" or "Polygon"
 
-            if (feature.geometry.type == 'Polygon' || feature.geometry.type == 'MultiPolygon') {
-                if (value == "true") {
-                    fill = '#50b161'
-                } else if (value == "false") {
-                    fill = '#ff6663'
-                } else {
-                    console.log(feature.properties)
-                    if (feature.properties.hub == true) {
-                        fill = '#A6B2BA'
+            //First differentiate between hubs and the basemap; then segment geometry.type by "Point" or "LineString" or "Polygon" 
+            if (feature.properties.hub == true) {
+
+                if (feature.geometry.type == 'Polygon' || feature.geometry.type == 'MultiPolygon') {
+                    if (value == "true") {
+                        //Hub is true
+                        fill = '#50b161'
+                    } else if (value == "false") {
+                        //Hub is false
+                        fill = '#ff6663'
                     } else {
-                        fill = '#ffffff00'
+                        //Hub is null
+                        fill = '#A6B2BA'
                     }
-                    //null
+                    return (
+                        <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
+                    )
                 }
+
+                if (feature.geometry.type == 'LineString') {
+                    fill = '#00000000'
+                    if (value == "true") {
+                        stroke = '#50b161'
+                    } else if (value == "false") {
+                        stroke = '#ff6663'
+                    } else {
+                        stroke = '#A6B2BA'
+                        //null
+                    }
+                    return (
+                        <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}/>
+                    )
+                }
+
+                if (feature.geometry.type == 'Point') {
+                    if (value == "true") {
+                        fill = '#50b161'
+                    } else if (value == "false") {
+                        fill = '#ff6663'
+                    } else {
+                        fill = '#A6B2BA'
+                        //null
+                    }
+                    const [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
+
+                    return (
+                        <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
+                    )
+                }
+            } else {
+                //state basemap
+                fill = '#ffffff'
                 return (
                     <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} />
-                )
-            }
-
-            if (feature.geometry.type == 'LineString') {
-                fill = '#00000000'
-                if (value == "true") {
-                    stroke = '#50b161'
-                } else if (value == "false") {
-                    stroke = '#ff6663'
-                } else {
-                    stroke = '#A6B2BA'
-                    //null
-                }
-                return (
-                    <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} />
-                )
-            }
-
-            if (feature.geometry.type == 'Point') {
-                if (value == "true") {
-                    fill = '#50b161'
-                } else if (value == "false") {
-                    fill = '#ff6663'
-                } else {
-                    fill = '#A6B2BA'
-                    //null
-                }
-                const [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
-
-                console.log(x, y)
-
-                return (
-                    <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type}></circle>
                 )
             }
         })
@@ -245,7 +264,7 @@ const App = () => {
 
                     </div>
                     <div className='canvas'>
-                        <svg width={canvasWidth - 40} height={canvasHeight} className='map-canvas'>
+                        <svg width={canvasWidth} height={canvasHeight} className='map-canvas'>
                             <g>
                                 {theMap}
                             </g>
