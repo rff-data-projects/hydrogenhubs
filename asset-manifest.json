@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hydrogenhubs/static/css/main.5be7bf5d.css",
-    "main.js": "/hydrogenhubs/static/js/main.e68a784e.js",
+    "main.css": "/hydrogenhubs/static/css/main.43dbf978.css",
+    "main.js": "/hydrogenhubs/static/js/main.ef9a0973.js",
     "index.html": "/hydrogenhubs/index.html",
-    "main.5be7bf5d.css.map": "/hydrogenhubs/static/css/main.5be7bf5d.css.map",
-    "main.e68a784e.js.map": "/hydrogenhubs/static/js/main.e68a784e.js.map"
+    "main.43dbf978.css.map": "/hydrogenhubs/static/css/main.43dbf978.css.map",
+    "main.ef9a0973.js.map": "/hydrogenhubs/static/js/main.ef9a0973.js.map"
   },
   "entrypoints": [
-    "static/css/main.5be7bf5d.css",
-    "static/js/main.e68a784e.js"
+    "static/css/main.43dbf978.css",
+    "static/js/main.ef9a0973.js"
   ]
 }
