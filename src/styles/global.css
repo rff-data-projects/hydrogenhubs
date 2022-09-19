@@ -1,6 +1,3 @@
-.temp {
-    display: inline-block
-}
 
 .map-canvas path {
     stroke-width: 1px;
@@ -12,6 +9,11 @@
     button.MuiButtonBase-root {
         font-size: 12px;
     }
+}
+
+path.LineString {
+    stroke-width: 2.5px;
+    filter: drop-shadow(-1px -1px 0px #A6B2BA) drop-shadow(1px -1px 0px #A6B2BA) drop-shadow(1px 1px 0px #A6B2BA) drop-shadow(-1px 1px 0px #A6B2BA);
 }
 
 .variable {

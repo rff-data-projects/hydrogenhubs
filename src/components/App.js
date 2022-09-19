@@ -144,8 +144,6 @@ const App = () => {
             //Check if there's data (if not, it's basemap, and set data to null)
             if (value[0]) {
 
-                console.log(value[0][mapVariable])
-
                 //Create tooltip values
                 tooltipValues =
                 {
@@ -220,6 +218,9 @@ const App = () => {
                     <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} />
                 )
             }
+
+
+
         })
 
         return (
