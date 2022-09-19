@@ -11,9 +11,9 @@ export const handleMouseOver = function (tooltipContent) {
 
         if (before == 'Feedstock') {
             //Feedstocks
-            if (tooltipContent.value == "true") {
+            if (tooltipContent.value == "true" || tooltipContent.value == true) {
                 tooltipValue = after + " is a feedstock"
-            } else if (tooltipContent.value == "false") {
+            } else if (tooltipContent.value == "false" || tooltipContent.value == false) {
                 tooltipValue = after + " is not a feedstock"
             } else {
                 //null
@@ -21,9 +21,9 @@ export const handleMouseOver = function (tooltipContent) {
             }
         } else {
             //End uses
-            if (tooltipContent.value == "true") {
+            if (tooltipContent.value == "true" || tooltipContent.value == true) {
                 tooltipValue = after + " is an end use"
-            } else if (tooltipContent.value == "false") {
+            } else if (tooltipContent.value == "false" || tooltipContent.value == false) {
                 tooltipValue = after + " is not an end use"
             } else {
                 //null

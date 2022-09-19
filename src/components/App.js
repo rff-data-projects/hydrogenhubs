@@ -47,10 +47,12 @@ const App = () => {
     /* - - - - Map data - - - - */
 
     const mapUrl = 'https://gist.githubusercontent.com/rossvdl/9600f80857b96b468ae0e935f0e2cb46/raw/8ae898e1e50299e8d7b9ebcd72489e6c9ae27caf/rffhydrogenhubsmap.json'
+    const mapUrl_tx = 'https://gist.githubusercontent.com/RFForg/941887907899cd34a15e56c6610d858e/raw/c71bac0811e5721aa029978f831ab6a514c106f4/tx_hh.json'
     const raw_csv = 'https://gist.githubusercontent.com/RFForg/4bba63b11cc93522e6eee71ef50ebdc0/raw/d6932020644290878fa7dcfd028c0650481edbda/hhdata.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
+    const [mapRatio, setMapRatio] = useState(0.78)
 
     /* - - - - Dynamic canvas width - - - - */
 
@@ -58,7 +60,6 @@ const App = () => {
     if (initialWindow > 900) {
         initialWindow = 900
     }
-    const mapRatio = 0.72
 
     const [canvasHeight, setCanvasHeight] = useState(initialWindow * mapRatio)
     const [canvasWidth, setCanvasWidth] = useState(initialWindow)
@@ -85,6 +86,7 @@ const App = () => {
     const handleChange = (e, newValue) => {
         setMapVariable(newValue)
     }
+    
     /* - - - - Map projection - - - - */
 
     const projection = d3.geoAlbers()
@@ -94,7 +96,7 @@ const App = () => {
         // adjust projection to fit area of map canvas
         projection
             .fitSize(
-                [canvasWidth - 40, canvasHeight], mapData
+                [canvasWidth - 20, canvasHeight - 20], mapData
             )
         return projection
     }
@@ -119,6 +121,31 @@ const App = () => {
             .attr("id", "tooltip")
             .attr("style", "position: absolute; display: none")
     }, [])
+
+    /* - - - - Zooming - - - - */
+
+    const checkZoom = (event) => {
+
+        if(event.target.attributes.stateName.value) {
+            if (event.target.attributes.stateName.value == 'Texas') {
+
+                d3.json(mapUrl_tx).then(data => {
+                    setMapData((prevState) => {
+                        return { ...prevState, data: data, loading: false };
+                    });
+                })
+
+            }
+
+        }
+        
+        // if (event.target.attributes.stateName.value == 'Texas') {
+        //     setMapData(mapUrl_tx)
+        // }
+        // if (stateName == 'Texas') {
+        //     console.log('arrived')
+        // }
+    }
 
     if (mapData.loading || !data) {
 
@@ -177,7 +204,7 @@ const App = () => {
                         fill = '#A6B2BA'
                     }
                     return (
-                        <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
+                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
                     )
                 }
 
@@ -192,7 +219,7 @@ const App = () => {
                         //null
                     }
                     return (
-                        <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}/>
+                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}/>
                     )
                 }
 
@@ -208,14 +235,14 @@ const App = () => {
                     const [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
 
                     return (
-                        <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
+                        <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
                     )
                 }
             } else {
                 //state basemap
                 fill = '#ffffff'
                 return (
-                    <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} />
+                    <path id={feature.properties.code} className={feature.geometry.type} stateName={feature.properties.name} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onClick={(event) => { checkZoom(event) }}/>
                 )
             }
 

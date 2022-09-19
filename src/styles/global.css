@@ -11,6 +11,12 @@
     }
 }
 
+path[stateName="Texas"] {
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
 path.LineString {
     stroke-width: 2.5px;
     filter: drop-shadow(-1px -1px 0px #A6B2BA) drop-shadow(1px -1px 0px #A6B2BA) drop-shadow(1px 1px 0px #A6B2BA) drop-shadow(-1px 1px 0px #A6B2BA);
@@ -103,7 +109,9 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
-
+path.hover, circle.hover {
+    cursor: pointer;
+}
 
 .table {
     display: grid;
