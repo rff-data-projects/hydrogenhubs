@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/hydrogenhubs/static/css/main.95f5a94d.css",
-    "main.js": "/hydrogenhubs/static/js/main.ef0cdf6a.js",
+    "main.js": "/hydrogenhubs/static/js/main.350c0e6b.js",
     "static/media/CalibreWeb-Regular.woff": "/hydrogenhubs/static/media/CalibreWeb-Regular.b427c91c705dcec52dd1.woff",
     "static/media/CalibreWeb-SemiboldItalic.woff": "/hydrogenhubs/static/media/CalibreWeb-SemiboldItalic.aae1b588f970736bf263.woff",
     "static/media/CalibreWeb-Semibold.woff": "/hydrogenhubs/static/media/CalibreWeb-Semibold.5f73d936ea51f9736347.woff",
@@ -12,10 +12,10 @@
     "static/media/CalibreWeb-Semibold.eot": "/hydrogenhubs/static/media/CalibreWeb-Semibold.81f2fbf406f75fec97a7.eot",
     "index.html": "/hydrogenhubs/index.html",
     "main.95f5a94d.css.map": "/hydrogenhubs/static/css/main.95f5a94d.css.map",
-    "main.ef0cdf6a.js.map": "/hydrogenhubs/static/js/main.ef0cdf6a.js.map"
+    "main.350c0e6b.js.map": "/hydrogenhubs/static/js/main.350c0e6b.js.map"
   },
   "entrypoints": [
     "static/css/main.95f5a94d.css",
-    "static/js/main.ef0cdf6a.js"
+    "static/js/main.350c0e6b.js"
   ]
 }
