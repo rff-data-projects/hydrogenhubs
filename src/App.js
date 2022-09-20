@@ -256,7 +256,7 @@ const App = () => {
                 <ThemeProvider theme={rffTheme}>
                     <div className='select'>
                         <div className='select-label'>
-                            Choose a feedstock
+                            Choose a feedstock...
                         </div>
                         <ToggleButtonGroup
                             color="primary"
@@ -274,7 +274,7 @@ const App = () => {
                     </div>
                     <div className='select'>
                         <div className='select-label'>
-                            Or choose end uses
+                            Or choose end uses...
                         </div>
                         <ToggleButtonGroup
                             color="primary"
