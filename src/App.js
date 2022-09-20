@@ -6,7 +6,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import { ToggleButton } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { ToggleButtonGroup } from '@mui/material'
-import { handleMouseOver, handleMouseOut, handleMouseMove } from './Tooltip.js'
+import { handleMouseOver, handleMouseOut, handleMouseMove } from './components/Tooltip.js'
 import { svg } from 'd3'
 
 const App = () => {
@@ -52,8 +52,7 @@ const App = () => {
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
-    
-    mapRatio = 0.78
+    const [mapRatio, setMapRatio] = useState(0.78)
 
     /* - - - - Dynamic canvas width - - - - */
 

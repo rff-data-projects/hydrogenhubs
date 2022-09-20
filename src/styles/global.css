@@ -1,33 +1,33 @@
 @font-face {
-    font-family: Calibre;
+    font-family: "Calibre";
     font-style: italic;
     font-weight: 400;
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.eot);
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.svg#CalibreItalic) format("svg")
+    src: url("../fonts/CalibreWeb-RegularItalic.eot");
+    src: url("../fonts/CalibreWeb-RegularItalic.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-RegularItalic.woff") format("woff")
 }
 
 @font-face {
-    font-family: Calibre;
+    font-family: "Calibre";
     font-style: normal;
     font-weight: 400;
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.eot);
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.svg#CalibreRegular) format("svg")
+    src: url("../fonts/CalibreWeb-Regular.eot");
+    src: url("../fonts/CalibreWeb-Regular.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-Regular.woff") format("woff")
 }
 
 @font-face {
-    font-family: Calibre;
+    font-family: "Calibre";
     font-style: italic;
     font-weight: 700;
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.eot);
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.svg#CalibreSbItalic) format("svg")
+    src: url("../fonts/CalibreWeb-SemiboldItalic.eot");
+    src: url("../fonts/CalibreWeb-SemiboldItalic.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-SemiboldItalic.woff") format("woff")
 }
 
 @font-face {
-    font-family: Calibre;
+    font-family: "Calibre";
     font-style: normal;
     font-weight: 700;
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.eot);
-    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.svg#CalibreSemiBold) format("svg")
+    src: url("../fonts/CalibreWeb-Semibold.eot");
+    src: url("../fonts/CalibreWeb-Semibold.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-Semibold.woff") format("woff")
 }
 
 .css-14iddyj-MuiButtonBase-root-MuiToggleButton-root.Mui-selected,.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root.Mui-selected:hover {

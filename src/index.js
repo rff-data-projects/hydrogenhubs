@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { StyledEngineProvider } from '@mui/material/styles';
 
-import App from "./components/App";
+import App from "./App";
 
 import './styles/global.css'
 
