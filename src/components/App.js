@@ -96,7 +96,7 @@ const App = () => {
         // adjust projection to fit area of map canvas
         projection
             .fitSize(
-                [canvasWidth - 20, canvasHeight - 20], mapData
+                [canvasWidth - 20, canvasHeight - 50], mapData
             )
         return projection
     }

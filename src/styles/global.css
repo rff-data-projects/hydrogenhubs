@@ -1,3 +1,73 @@
+@font-face {
+    font-family: Calibre;
+    font-style: italic;
+    font-weight: 400;
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.eot);
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-RegularItalic.svg#CalibreItalic) format("svg")
+}
+
+@font-face {
+    font-family: Calibre;
+    font-style: normal;
+    font-weight: 400;
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.eot);
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Regular.svg#CalibreRegular) format("svg")
+}
+
+@font-face {
+    font-family: Calibre;
+    font-style: italic;
+    font-weight: 700;
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.eot);
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-SemiboldItalic.svg#CalibreSbItalic) format("svg")
+}
+
+@font-face {
+    font-family: Calibre;
+    font-style: normal;
+    font-weight: 700;
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.eot);
+    src: url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.eot#iefix) format("embedded-opentype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.woff) format("woff"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.ttf) format("truetype"), url(//static.dwcdn.net/custom/themes/rff/CalibreWeb-Semibold.svg#CalibreSemiBold) format("svg")
+}
+
+.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root.Mui-selected,.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root.Mui-selected:hover {
+    color: #fff;
+    background-color: #04273c;
+}
+
+.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root {
+    font-family: 'Calibre',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"';
+}
+
+html,
+body {
+    color: #04273c;
+    font-family:
+        'Calibre',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 18px;
+}
 
 .map-canvas path {
     stroke-width: 1px;
@@ -7,7 +77,7 @@
 
 @media only screen and (max-width: 600px) {
     button.MuiButtonBase-root {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
 
@@ -23,7 +93,7 @@ path.LineString {
 }
 
 .variable {
-    font-size: 12px;
+    font-size: 13px;
     margin: 0px 0px 10px;
     padding: 5px 8px;
     border-radius: 3px;
@@ -61,8 +131,9 @@ path.LineString {
     border: none;
     color: #fff;
 }
+
 .css-14iddyj-MuiButtonBase-root-MuiToggleButton-root {
-    color: #537990;
+    color: #04273c;
 }
 
 circle {
@@ -83,25 +154,8 @@ input[type="range"] {
     margin-bottom: 5px;
 }
 
-html,
-body {
-    color: #04273c;
-    font-family:
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
-.select:first-child {
+.select {
     margin-bottom: 20px;
 }
 
@@ -109,7 +163,9 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
-path.hover, circle.hover {
+
+path.hover,
+circle.hover {
     cursor: pointer;
 }
 
