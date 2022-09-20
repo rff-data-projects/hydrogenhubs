@@ -30,12 +30,13 @@
     src: url("../fonts/CalibreWeb-Semibold.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-Semibold.woff") format("woff")
 }
 
-.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root.Mui-selected,.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root.Mui-selected:hover {
-    color: #fff;
-    background-color: #04273c;
+.Mui-selected,.Mui-selected:hover {
+    color: #fff !important;
+    background-color: #04273c !important;
 }
 
 .css-14iddyj-MuiButtonBase-root-MuiToggleButton-root {
+    color: #04273c;
     font-family: 'Calibre',
     '-apple-system',
     'BlinkMacSystemFont',
@@ -130,10 +131,6 @@ path.LineString {
 .map-canvas {
     border: none;
     color: #fff;
-}
-
-.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root {
-    color: #04273c;
 }
 
 circle {
