@@ -1,13 +1,21 @@
 {
   "files": {
-    "main.css": "/hydrogenhubs/static/css/main.4cb046db.css",
-    "main.js": "/hydrogenhubs/static/js/main.ed31e7e8.js",
+    "main.css": "/hydrogenhubs/static/css/main.95f5a94d.css",
+    "main.js": "/hydrogenhubs/static/js/main.ef0cdf6a.js",
+    "static/media/CalibreWeb-Regular.woff": "/hydrogenhubs/static/media/CalibreWeb-Regular.b427c91c705dcec52dd1.woff",
+    "static/media/CalibreWeb-SemiboldItalic.woff": "/hydrogenhubs/static/media/CalibreWeb-SemiboldItalic.aae1b588f970736bf263.woff",
+    "static/media/CalibreWeb-Semibold.woff": "/hydrogenhubs/static/media/CalibreWeb-Semibold.5f73d936ea51f9736347.woff",
+    "static/media/CalibreWeb-RegularItalic.woff": "/hydrogenhubs/static/media/CalibreWeb-RegularItalic.3fd0008b4d1de6a44d27.woff",
+    "static/media/CalibreWeb-Regular.eot": "/hydrogenhubs/static/media/CalibreWeb-Regular.6569bb0bf41efef6446d.eot",
+    "static/media/CalibreWeb-SemiboldItalic.eot": "/hydrogenhubs/static/media/CalibreWeb-SemiboldItalic.bc7e4bab8dc3c4b4ea41.eot",
+    "static/media/CalibreWeb-RegularItalic.eot": "/hydrogenhubs/static/media/CalibreWeb-RegularItalic.97a65ec9268a71275f59.eot",
+    "static/media/CalibreWeb-Semibold.eot": "/hydrogenhubs/static/media/CalibreWeb-Semibold.81f2fbf406f75fec97a7.eot",
     "index.html": "/hydrogenhubs/index.html",
-    "main.4cb046db.css.map": "/hydrogenhubs/static/css/main.4cb046db.css.map",
-    "main.ed31e7e8.js.map": "/hydrogenhubs/static/js/main.ed31e7e8.js.map"
+    "main.95f5a94d.css.map": "/hydrogenhubs/static/css/main.95f5a94d.css.map",
+    "main.ef0cdf6a.js.map": "/hydrogenhubs/static/js/main.ef0cdf6a.js.map"
   },
   "entrypoints": [
-    "static/css/main.4cb046db.css",
-    "static/js/main.ed31e7e8.js"
+    "static/css/main.95f5a94d.css",
+    "static/js/main.ef0cdf6a.js"
   ]
 }
