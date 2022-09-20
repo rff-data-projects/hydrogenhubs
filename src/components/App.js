@@ -52,7 +52,7 @@ const App = () => {
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
-    
+
     mapRatio = 0.78
 
     /* - - - - Dynamic canvas width - - - - */
@@ -257,7 +257,7 @@ const App = () => {
                 <ThemeProvider theme={rffTheme}>
                     <div className='select'>
                         <div className='select-label'>
-                            Choose a feedstock
+                            Choose a feedstock:
                         </div>
                         <ToggleButtonGroup
                             color="primary"
@@ -275,7 +275,7 @@ const App = () => {
                     </div>
                     <div className='select'>
                         <div className='select-label'>
-                            Or choose end uses
+                            Or choose end uses:
                         </div>
                         <ToggleButtonGroup
                             color="primary"
