@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Calibre Web Regular';
+    src: url("../fonts/CalibreWeb-Regular.woff2") format("woff2"), url("../fonts/CalibreWeb-Regular.woff") format("woff");
+    font-style: normal;
+    font-display: block
+}
+
+@font-face {
+    font-family: 'Calibre Web Regular';
+    src: url("../fonts/CalibreWeb-RegularItalic.woff2") format("woff2"), url("../fonts/CalibreWeb-RegularItalic.woff") format("woff");
+    font-style: italic;
+    font-display: block
+}
+
+@font-face {
+    font-family: 'Calibre Web Bold';
+    src: url("../fonts/CalibreWeb-Bold.woff") format("woff");
+    font-style: normal;
+    font-display: block
+}
+
+@font-face {
+    font-family: 'Calibre Web Bold';
+    src: url("../fonts/CalibreWeb-BoldItalic.woff") format("woff");
+    font-style: italic;
+    font-display: block
+}

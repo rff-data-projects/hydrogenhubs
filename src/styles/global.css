@@ -1,60 +1,14 @@
-@font-face {
-    font-family: "Calibre";
-    font-style: italic;
-    font-weight: 400;
-    src: url("../fonts/CalibreWeb-RegularItalic.eot");
-    src: url("../fonts/CalibreWeb-RegularItalic.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-RegularItalic.woff") format("woff")
-}
-
-@font-face {
-    font-family: "Calibre";
-    font-style: normal;
-    font-weight: 400;
-    src: url("../fonts/CalibreWeb-Regular.eot");
-    src: url("../fonts/CalibreWeb-Regular.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-Regular.woff") format("woff")
-}
-
-@font-face {
-    font-family: "Calibre";
-    font-style: italic;
-    font-weight: 700;
-    src: url("../fonts/CalibreWeb-SemiboldItalic.eot");
-    src: url("../fonts/CalibreWeb-SemiboldItalic.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-SemiboldItalic.woff") format("woff")
-}
-
-@font-face {
-    font-family: "Calibre";
-    font-style: normal;
-    font-weight: 700;
-    src: url("../fonts/CalibreWeb-Semibold.eot");
-    src: url("../fonts/CalibreWeb-Semibold.eot#iefix") format("embedded-opentype"), url("../fonts/CalibreWeb-Semibold.woff") format("woff")
-}
-
-.Mui-selected,.Mui-selected:hover {
+.Mui-selected,
+.Mui-selected:hover {
     color: #fff !important;
     background-color: #04273c !important;
-}
-
-.css-14iddyj-MuiButtonBase-root-MuiToggleButton-root {
-    color: #04273c;
-    font-family: 'Calibre',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
-    'sans-serif',
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"';
 }
 
 html,
 body {
     color: #04273c;
     font-family:
-        'Calibre',
+        'Calibre Web Regular',
         '-apple-system',
         'BlinkMacSystemFont',
         '"Segoe UI"',
@@ -68,7 +22,20 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 18px;
+    margin:0px;
 }
+
+#tooltip { 
+    display: none; 
+    width: 340px;
+    margin: 20px;
+    margin-top: -20px;
+    border: 1px solid #537990;
+    padding: 15px;
+    border-radius: 4px;
+    z-index: 4
+}
+
 
 .map-canvas path {
     stroke-width: 1px;
@@ -88,9 +55,58 @@ path[stateName="Texas"] {
     cursor: zoom-in;
 }
 
+path[stateName="Washington"] {
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+path[stateName="Oregon"] {
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+path[stateName="Idaho"] {
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+
+path[stateName="North Dakota"] {
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+li.MuiListSubheader-root {
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #04273c;
+    font-family: 'Calibre Web Regular';
+    letter-spacing: 1px;
+}
+
+fieldset.MuiOutlinedInput-notchedOutline {
+    border-color: #A6B2BA;
+}
+
+li.MuiButtonBase-root {
+    font-size: 19px;
+    color: #04273c;
+    font-family: 'Calibre Web Regular';
+}
+
 path.LineString {
     stroke-width: 2.5px;
     filter: drop-shadow(-1px -1px 0px #A6B2BA) drop-shadow(1px -1px 0px #A6B2BA) drop-shadow(1px 1px 0px #A6B2BA) drop-shadow(-1px 1px 0px #A6B2BA);
+}
+
+.controller {
+    display: flex;
+    justify-content: center;
 }
 
 .variable {
@@ -111,16 +127,19 @@ path.LineString {
 }
 
 .variable.null {
-    background-color: #A6B2BA;
+    background-color: #c5ced3;
 }
 
+.variable.public {
+    background-color: #755EA6;
+}
 
-#tooltip {
-    border: 1px solid #537990;
-    padding: 15px;
-    border-radius: 4px;
-    width: 320px;
-    z-index: 4
+.variable.private {
+    background-color: #F4A25F;
+}
+
+.variable.mixed {
+    background-color: #74645E;
 }
 
 .canvas {
@@ -166,6 +185,8 @@ circle.hover {
     cursor: pointer;
 }
 
+.MuiInputBase-root { font-family: 'Calibre Web Regular'; font-size: 19px; color: #04273c; }
+
 .table {
     display: grid;
     grid-template-columns: 1fr;
@@ -175,4 +196,66 @@ circle.hover {
 h2 {
     margin-block-start: 0px;
     margin-block-end: 10px;
+    font-family: 'Calibre Web Bold';
+    line-height: 100%;
+    color: #04273c;
+}
+
+.minor-label {
+    font-size: 15px;
+    opacity: 50%;
+    margin-top: 10px;
+}
+
+.divider {
+    height:1px;
+    width: auto;
+    color: #A6B2BA;
+}
+
+@keyframes ldio-nt6a5h3amtm {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.ldio-nt6a5h3amtm div {
+    position: absolute;
+    width: 86px;
+    height: 86px;
+    border: 10px solid #88c4f4;
+    border-top-color: transparent;
+    border-radius: 50%;
+}
+
+.ldio-nt6a5h3amtm div {
+    animation: ldio-nt6a5h3amtm 1s linear infinite;
+    top: 100px;
+    left: 100px
+}
+
+.loadingio-spinner-rolling-ug3qwu8l9v {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+}
+
+.ldio-nt6a5h3amtm {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+    /* see note above */
+}
+
+.ldio-nt6a5h3amtm div {
+    box-sizing: content-box;
 }

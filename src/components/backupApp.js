@@ -11,7 +11,7 @@ import { svg } from 'd3'
 
 const App = () => {
 
-    /* - - - - Theme - - - - */
+    /* - - - - - Theme - - - - */
 
     const rffTheme = createTheme({
         palette: {
@@ -48,6 +48,8 @@ const App = () => {
 
     const mapUrl = 'https://gist.githubusercontent.com/rossvdl/9600f80857b96b468ae0e935f0e2cb46/raw/8ae898e1e50299e8d7b9ebcd72489e6c9ae27caf/rffhydrogenhubsmap.json'
     const mapUrl_tx = 'https://gist.githubusercontent.com/RFForg/941887907899cd34a15e56c6610d858e/raw/c71bac0811e5721aa029978f831ab6a514c106f4/tx_hh.json'
+    const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/7cd68468606d99c1d7ee6490f802c64b/raw/1187428e435155b57503eab0051efbbeac59631b/PNW.json'
+    const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/73ace02ab6b71b14b2c7bf00811f55b3/raw/b9e2ad68959007496dd7523aa222303188ff6be9/ND.json'
     const raw_csv = 'https://gist.githubusercontent.com/RFForg/4bba63b11cc93522e6eee71ef50ebdc0/raw/d6932020644290878fa7dcfd028c0650481edbda/hhdata.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
@@ -127,6 +129,8 @@ const App = () => {
 
     const checkZoom = (event) => {
 
+        console.log('checked')
+
         if(event.target.attributes.stateName.value) {
             if (event.target.attributes.stateName.value == 'Texas') {
 
@@ -136,7 +140,15 @@ const App = () => {
                     });
                 })
 
-            }
+            } else if (event.target.attributes.stateName.value == 'Idaho') {
+
+                d3.json(mapUrl_tx).then(data => {
+                    setMapData((prevState) => {
+                        return { ...prevState, data: data, loading: false };
+                    });
+                })
+
+            } 
 
         }
         
@@ -257,7 +269,7 @@ const App = () => {
                 <ThemeProvider theme={rffTheme}>
                     <div className='select'>
                         <div className='select-label'>
-                            Choose a feedstock
+                            Choose a feedstock:
                         </div>
                         <ToggleButtonGroup
                             color="primary"
@@ -275,7 +287,7 @@ const App = () => {
                     </div>
                     <div className='select'>
                         <div className='select-label'>
-                            Or choose end uses
+                            Or choose end uses:
                         </div>
                         <ToggleButtonGroup
                             color="primary"

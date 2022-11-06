@@ -4,7 +4,8 @@ import { StyledEngineProvider } from '@mui/material/styles';
 
 import App from "./App";
 
-import './styles/global.css'
+import './styles/global.css';
+import './styles/fonts.css';
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);

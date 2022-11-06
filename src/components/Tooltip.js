@@ -19,7 +19,7 @@ export const handleMouseOver = function (tooltipContent) {
                 //null
                 tooltipValue = after + " use as a feedstock unknown"
             }
-        } else {
+        } else if (before == 'End Uses') {
             //End uses
             if (tooltipContent.value == "true" || tooltipContent.value == true) {
                 tooltipValue = after + " is an end use"
@@ -29,6 +29,25 @@ export const handleMouseOver = function (tooltipContent) {
                 //null
                 tooltipValue = after + " end use status unknown"
             }
+        } else {
+            if (tooltipContent.value == "Public" || tooltipContent.value == false) {
+                tooltipValue = "Public partnership"
+            } else if (tooltipContent.value == "Private" || tooltipContent.value == false) {
+                tooltipValue = "Private partnership"
+            } else {
+                tooltipValue = "Public-private partnership"
+            } 
+        }
+
+        let variableClassName = ''
+        if (tooltipContent.value == 'Public-Private') {
+            variableClassName = "mixed"
+        } else if (tooltipContent.value == 'Public') { 
+            variableClassName = "public"
+        } else if (tooltipContent.value == 'Private') {
+            variableClassName = "private"
+        } else { 
+            variableClassName = tooltipContent.value
         }
 
         d3.select("#tooltip")
@@ -37,8 +56,11 @@ export const handleMouseOver = function (tooltipContent) {
             .html(
 
                 `<h2>` + tooltipContent.name + `</h2>
-            <div class='` + tooltipContent.value + ` variable'>` + tooltipValue + `</div>
-        <div class='secondary'>`+ tooltipContent.description + `</div>`
+            <div class='` + variableClassName + ` variable'>` + tooltipValue + `</div>
+        <div class='secondary'>`+ tooltipContent.description + `</div>
+        <div class='divider'></div>
+        <div class='minor-label'>Lead Partner</div>
+        <div class='minor'>` + tooltipContent.lead + `</div>`
             )
     }
 
@@ -56,12 +78,19 @@ export const handleMouseMove = function (event) {
     //This will only work if map is centered
     if (window.innerWidth / 2 < event.pageX) {
         d3.select("#tooltip")
-            .style("left", event.pageX - 360 + "px")
-            .style("top", event.pageY - 2 + "px")
+            .style("left", event.pageX - 424 + "px")
     } else {
         d3.select("#tooltip")
             .style("left", event.pageX + 12 + "px")
-            .style("top", event.pageY - 2 + "px")
     }
 
+    if (event.pageY > 350) { 
+        d3.select("#tooltip")
+            .style("top", event.pageY - 180 + "px")
+    } else {
+        d3.select("#tooltip")
+            .style("top", event.pageY - 12 + "px")
+    }
+
+    console.log(event)
 }
