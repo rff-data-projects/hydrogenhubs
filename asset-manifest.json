@@ -1,21 +1,19 @@
 {
   "files": {
-    "main.css": "/hydrogenhubs/static/css/main.a880d251.css",
-    "main.js": "/hydrogenhubs/static/js/main.350c0e6b.js",
+    "main.css": "/hydrogenhubs/static/css/main.ca15dc54.css",
+    "main.js": "/hydrogenhubs/static/js/main.d26321bc.js",
     "static/media/CalibreWeb-Regular.woff": "/hydrogenhubs/static/media/CalibreWeb-Regular.b427c91c705dcec52dd1.woff",
-    "static/media/CalibreWeb-SemiboldItalic.woff": "/hydrogenhubs/static/media/CalibreWeb-SemiboldItalic.aae1b588f970736bf263.woff",
-    "static/media/CalibreWeb-Semibold.woff": "/hydrogenhubs/static/media/CalibreWeb-Semibold.5f73d936ea51f9736347.woff",
     "static/media/CalibreWeb-RegularItalic.woff": "/hydrogenhubs/static/media/CalibreWeb-RegularItalic.3fd0008b4d1de6a44d27.woff",
-    "static/media/CalibreWeb-Regular.eot": "/hydrogenhubs/static/media/CalibreWeb-Regular.6569bb0bf41efef6446d.eot",
-    "static/media/CalibreWeb-SemiboldItalic.eot": "/hydrogenhubs/static/media/CalibreWeb-SemiboldItalic.bc7e4bab8dc3c4b4ea41.eot",
-    "static/media/CalibreWeb-RegularItalic.eot": "/hydrogenhubs/static/media/CalibreWeb-RegularItalic.97a65ec9268a71275f59.eot",
-    "static/media/CalibreWeb-Semibold.eot": "/hydrogenhubs/static/media/CalibreWeb-Semibold.81f2fbf406f75fec97a7.eot",
+    "static/media/CalibreWeb-BoldItalic.woff": "/hydrogenhubs/static/media/CalibreWeb-BoldItalic.979ea0ee7686d7504e77.woff",
+    "static/media/CalibreWeb-Bold.woff": "/hydrogenhubs/static/media/CalibreWeb-Bold.f4c6df0291b20cb9c9dc.woff",
+    "static/media/CalibreWeb-Regular.woff2": "/hydrogenhubs/static/media/CalibreWeb-Regular.e2842709e9fd5725c04b.woff2",
+    "static/media/CalibreWeb-RegularItalic.woff2": "/hydrogenhubs/static/media/CalibreWeb-RegularItalic.dbbba528dabb07c2243b.woff2",
     "index.html": "/hydrogenhubs/index.html",
-    "main.a880d251.css.map": "/hydrogenhubs/static/css/main.a880d251.css.map",
-    "main.350c0e6b.js.map": "/hydrogenhubs/static/js/main.350c0e6b.js.map"
+    "main.ca15dc54.css.map": "/hydrogenhubs/static/css/main.ca15dc54.css.map",
+    "main.d26321bc.js.map": "/hydrogenhubs/static/js/main.d26321bc.js.map"
   },
   "entrypoints": [
-    "static/css/main.a880d251.css",
-    "static/js/main.350c0e6b.js"
+    "static/css/main.ca15dc54.css",
+    "static/js/main.d26321bc.js"
   ]
 }
