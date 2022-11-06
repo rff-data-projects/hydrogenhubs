@@ -58,6 +58,9 @@ const App = () => {
     const [data, setData] = useState(null)
     const [mapRatio, setMapRatio] = useState(0.55)
 
+    const [backEnabled, setBackEnabled] = useState(false)
+    const [partnershipSelected, setPartnershipSelected] = useState(false)
+
     /* - - - - Dynamic canvas width - - - - */
 
     let initialWindow = window.innerWidth
@@ -86,14 +89,23 @@ const App = () => {
     /* - - - - Toggle element - - - - */
 
     const [mapVariable, setMapVariable] = useState('Feedstock: Renewables')
-
-    const handleChange = (e, newValue) => {
-        console.log(newValue)
-        setMapVariable(newValue)
-    }
+    const [formattedVariable, setFormattedVariable] = useState('a feedstock')
 
     const handleMenuChange = (event: SelectChangeEvent) => {
         setMapVariable(event.target.value);
+
+        if (event.target.value.split(":")[0] == 'Feedstock') {
+            setFormattedVariable('a feedstock')
+        } else if (event.target.value.split(":")[0] == 'End Uses') {
+            setFormattedVariable('an end use')
+        }
+
+        if (event.target.value == 'Partnership') {
+            setPartnershipSelected(true)
+        } else {
+            setPartnershipSelected(false)
+        }
+
     };
     /* - - - - Map projection - - - - */
 
@@ -130,6 +142,19 @@ const App = () => {
             .attr("style", "position: absolute; display: none")
     }, [])
 
+    /* - - Resetting Zoom - - */
+
+    const resetZoom = () => {
+
+        d3.json(mapUrl).then(data => {
+            setMapData((prevState) => {
+                return { ...prevState, data: data, loading: false };
+            });
+        })
+
+        setBackEnabled(false)
+    }
+
     /* - - - - Zooming - - - - */
 
     const checkZoom = (event) => {
@@ -143,6 +168,8 @@ const App = () => {
                     });
                 })
 
+                setBackEnabled(true)
+
             } else if (event.target.attributes.stateName.value == 'Idaho' || event.target.attributes.stateName.value == 'Washington' || event.target.attributes.stateName.value == 'Oregon') {
 
                 d3.json(mapUrl_pnw).then(data => {
@@ -151,6 +178,8 @@ const App = () => {
                     });
                 })
 
+                setBackEnabled(true)
+
             } else if (event.target.attributes.stateName.value == 'North Dakota') {
 
                 d3.json(mapUrl_nd).then(data => {
@@ -158,6 +187,10 @@ const App = () => {
                         return { ...prevState, data: data, loading: false };
                     });
                 })
+
+                setBackEnabled(true)
+
+            } else {
 
             }
         }
@@ -311,8 +344,6 @@ const App = () => {
             <div className='mapper'>
                 <div className='controller'>
                     <ThemeProvider theme={rffTheme}>
-
-
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                             <InputLabel id="simple-select-label"></InputLabel>
                             <Select
@@ -340,6 +371,7 @@ const App = () => {
                         </FormControl>
                     </ThemeProvider>
                 </div>
+                {backEnabled && <div className='reset' onClick={() => { resetZoom() }}><div className='reset-button'>← Back to US Map</div></div>}
                 <div className='canvas'>
                     <svg width={canvasWidth} height={canvasHeight} className='map-canvas'>
                         <g>
@@ -347,8 +379,70 @@ const App = () => {
                         </g>
                     </svg>
                 </div>
-                <div className='legend'>
-                    
+                <div className='legend-container'>
+                    <div className='legend'>
+                        {!partnershipSelected && <div className='legend-colors'>
+                            <div className='legend-item'>
+                                <div className='legend-icon true'>
+                                </div>
+                                <div className='legend-value'>{mapVariable.split(": ")[1]} is {formattedVariable}
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon false'>
+                                </div>
+                                <div className='legend-value'>{mapVariable.split(": ")[1]} is not {formattedVariable}
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon unknown'>
+                                </div>
+                                <div className='legend-value'>{mapVariable.split(": ")[1]} {formattedVariable.split(" ")[1]} status unknown
+                                </div>
+                            </div>
+                        </div>}
+                        {partnershipSelected && <div className='legend-colors'>
+                            <div className='legend-item'>
+                                <div className='legend-icon public'>
+                                </div>
+                                <div className='legend-value'>Public Partnership
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon private'>
+                                </div>
+                                <div className='legend-value'>Private Partnership
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon mixed'>
+                                </div>
+                                <div className='legend-value'>Public-Private Partnership
+                                </div>
+                            </div>
+                        </div>}
+
+                        <div className='legend-shapes'>
+                            <div className='legend-item'>
+                                <div className='legend-icon state'>
+                                </div>
+                                <div className='legend-value'>State or Multi-State Hub
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon within'>
+                                </div>
+                                <div className='legend-value'>Hub within a State
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon pipeline'>
+                                </div>
+                                <div className='legend-value'>Pipeline
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

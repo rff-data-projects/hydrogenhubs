@@ -92,5 +92,4 @@ export const handleMouseMove = function (event) {
             .style("top", event.pageY - 12 + "px")
     }
 
-    console.log(event)
 }

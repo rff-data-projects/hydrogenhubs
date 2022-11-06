@@ -109,6 +109,26 @@ path.LineString {
     justify-content: center;
 }
 
+.reset {
+    font-size: 16px;
+    margin-top: 10px;
+    display: flex;
+    margin-left: 30px;
+    width: auto;
+}
+
+.reset-button {
+    width: auto;
+    border: 1px solid #A6B2BA;
+    padding: 6px 12px;
+    border-radius: 35px;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    background: #c2cdd4;
+}
+
 .variable {
     font-size: 13px;
     margin: 0px 0px 10px;
@@ -118,27 +138,28 @@ path.LineString {
     color: white;
 }
 
-.variable.true {
+.variable.true, .legend-icon.true {
     background-color: #50b161;
 }
 
-.variable.false {
+.variable.false, .legend-icon.false {
     background-color: #ff6663;
 }
 
-.variable.null {
+.variable.null, .legend-icon.unknown {
     background-color: #c5ced3;
+    color: #04263cac;
 }
 
-.variable.public {
+.variable.public, .legend-icon.public {
     background-color: #755EA6;
 }
 
-.variable.private {
+.variable.private, .legend-icon.private {
     background-color: #F4A25F;
 }
 
-.variable.mixed {
+.variable.mixed, .legend-icon.mixed {
     background-color: #74645E;
 }
 
@@ -258,4 +279,53 @@ h2 {
 
 .ldio-nt6a5h3amtm div {
     box-sizing: content-box;
+}
+
+.legend {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: auto;
+}
+
+.legend-container {
+    display: grid;
+    margin: 0px 20px;
+}
+
+.legend-colors, .legend-shapes { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.legend-shapes {
+    margin-top: 20px;
+}
+
+.legend-icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #A6B2BA;
+    border-radius: 5px;
+}
+
+.legend-icon.state {
+    border:0px solid rgba(0,0,0,0);
+    background-image: url('/public/stateoutline.png');
+    background-size: cover;
+    height:22px;
+    width:22px;
+}
+.legend-icon.within {
+    border-radius: 50%
+}
+.legend-icon.pipeline {
+    background: linear-gradient(165deg, 
+    rgba(0,0,0,0) calc(50% - 3px), 
+    #A6B2BA calc(50% - 2px), 
+    #FFFFFF calc(50% - 1px), 
+    #FFFFFF calc(50% + 1px), 
+    #A6B2BA calc(50% + 2px), 
+    rgba(0,0,0,0) calc(50% + 3px))
 }
