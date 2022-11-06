@@ -56,7 +56,7 @@ const App = () => {
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
-    const [mapRatio, setMapRatio] = useState(0.55)
+    const [mapRatio, setMapRatio] = useState(0.67)
 
     const [backEnabled, setBackEnabled] = useState(false)
     const [partnershipSelected, setPartnershipSelected] = useState(false)
