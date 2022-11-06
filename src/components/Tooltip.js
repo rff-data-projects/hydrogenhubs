@@ -77,8 +77,13 @@ export const handleMouseMove = function (event) {
 
     //This will only work if map is centered
     if (window.innerWidth / 2 < event.pageX) {
-        d3.select("#tooltip")
-            .style("left", event.pageX - 424 + "px")
+        if (window.innerWidth >= 600) {
+            d3.select("#tooltip")
+                .style("left", event.pageX - 424 + "px")
+        } else {
+            d3.select("#tooltip")
+                .style("left", event.pageX - 274 + "px")
+        }
     } else {
         d3.select("#tooltip")
             .style("left", event.pageX + 12 + "px")

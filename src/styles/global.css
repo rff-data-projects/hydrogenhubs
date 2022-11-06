@@ -36,7 +36,6 @@ body {
     z-index: 4
 }
 
-
 .map-canvas path {
     stroke-width: 1px;
     stroke-linecap: round;
@@ -44,6 +43,11 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+
+    #tooltip { 
+        width: 190px;
+    }
+
     button.MuiButtonBase-root {
         font-size: 13px;
     }
@@ -284,8 +288,9 @@ h2 {
 .legend {
     display: grid;
     grid-template-columns: 1fr;
-    max-width: 800px;
+    max-width: 700px;
     margin: auto;
+    width: 100%;
 }
 
 .legend-container {
@@ -297,6 +302,7 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
+    justify-items: stretch;
 }
 
 .legend-shapes {
