@@ -372,7 +372,7 @@ const App = () => {
                     </ThemeProvider>
                 </div>
                 {backEnabled && <div className='reset' onClick={() => { resetZoom() }}><div className='reset-button'>← Back to US Map</div></div>}
-                <div className='canvas'>
+                <div className='canvas' id={backEnabled ? 'zoomed-canvas' : 'canvas'}>
                     <svg width={canvasWidth} height={canvasHeight} className='map-canvas'>
                         <g>
                             {theMap}

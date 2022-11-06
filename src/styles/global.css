@@ -53,32 +53,11 @@ body {
     }
 }
 
-path[stateName="Texas"] {
-    cursor: -moz-zoom-in;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
+#zoomed-canvas path[stateName="Texas"],#zoomed-canvas path[stateName="Washington"],#zoomed-canvas path[stateName="Oregon"],#zoomed-canvas path[stateName="Idaho"],#zoomed-canvas path[stateName="North Dakota"] {
+    cursor: default;
 }
 
-path[stateName="Washington"] {
-    cursor: -moz-zoom-in;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-}
-
-path[stateName="Oregon"] {
-    cursor: -moz-zoom-in;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-}
-
-path[stateName="Idaho"] {
-    cursor: -moz-zoom-in;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-}
-
-
-path[stateName="North Dakota"] {
+path[stateName="Texas"],path[stateName="Washington"],path[stateName="Oregon"],path[stateName="Idaho"],path[stateName="North Dakota"] {
     cursor: -moz-zoom-in;
     cursor: -webkit-zoom-in;
     cursor: zoom-in;
@@ -224,6 +203,7 @@ h2 {
     font-family: 'Calibre Web Bold';
     line-height: 100%;
     color: #04273c;
+    -webkit-font-smoothing: antialiased;
 }
 
 .minor-label {
@@ -335,3 +315,4 @@ h2 {
     #A6B2BA calc(50% + 2px), 
     rgba(0,0,0,0) calc(50% + 3px))
 }
+
