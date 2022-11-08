@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import * as d3 from "d3"
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
 import InputLabel from '@mui/material/InputLabel';
 import ListSubheader from '@mui/material/ListSubheader';
 import FormControl from '@mui/material/FormControl';
@@ -48,11 +49,11 @@ const App = () => {
 
     /* - - - - Map data - - - - */
 
-    const mapUrl = 'https://gist.githubusercontent.com/rossvdl/9600f80857b96b468ae0e935f0e2cb46/raw/8ae898e1e50299e8d7b9ebcd72489e6c9ae27caf/rffhydrogenhubsmap.json'
-    const mapUrl_tx = 'https://gist.githubusercontent.com/RFForg/941887907899cd34a15e56c6610d858e/raw/c71bac0811e5721aa029978f831ab6a514c106f4/tx_hh.json'
-    const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/7cd68468606d99c1d7ee6490f802c64b/raw/1187428e435155b57503eab0051efbbeac59631b/PNW.json'
-    const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/73ace02ab6b71b14b2c7bf00811f55b3/raw/b9e2ad68959007496dd7523aa222303188ff6be9/ND.json'
-    const raw_csv = 'https://gist.githubusercontent.com/RFForg/b816285deda2ba654a26128372327471/raw/d3079bc07855ad5ba13758d708464fc5bbc909b7/raw_csv_test_wrongvalues'
+    const mapUrl = 'https://gist.githubusercontent.com/RFForg/e976074e1998642bc9436d72ea3de294/raw/58955f7b376788009cea9621bf9956c7d21dbe84/hhmain.json'
+    const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
+    const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/PNW.json'
+    const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/794701a9fff5cac2f27cfc8afe1cb666/raw/4c3bf9f2196910bb0bf1eced589c0275559d6c78/hhdata.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
@@ -109,7 +110,7 @@ const App = () => {
     };
     /* - - - - Map projection - - - - */
 
-    const projection = d3.geoAlbers()
+    const projection = d3.geoAlbersUsa()
 
     const setMapProjection = function (mapData, canvasWidth, canvasHeight) {
 
@@ -156,6 +157,18 @@ const App = () => {
     }
 
     /* - - - - Zooming - - - - */
+
+    const buttonZoom = (newUrl) => {
+
+        d3.json(newUrl).then(data => {
+            setMapData((prevState) => {
+                return { ...prevState, data: data, loading: false };
+            });
+        })
+
+        setBackEnabled(true)
+
+    }
 
     const checkZoom = (event) => {
 
@@ -255,19 +268,19 @@ const App = () => {
             if (feature.properties.hub == true) {
 
                 if (feature.geometry.type == 'Polygon' || feature.geometry.type == 'MultiPolygon') {
-                    if (value == "true") {
+                    if (value == "true" || value == "TRUE" || value == true) {
                         //Hub is true
                         fill = '#50b161'
-                    } else if (value == "false") {
+                    } else if (value == "false" || value == "FALSE" || value == false) {
                         //Hub is false
                         fill = '#ff6663'
-                    } else if (value == "Public") {
+                    } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
                         fill = '#755EA6'
-                    } else if (value == "Private") {
+                    } else if (value == "Private" || value == "PRIVATE" || value == "private") {
                         //Hub is private partnership
                         fill = '#F4A25F'
-                    } else if (value == "Public-Private") {
+                    } else if (value == "Public-Private" || value == "PUBLIC-PRIVATE" || value == "public-private") {
                         //Hub is public-private partnership
                         fill = '#74645E'
                     } else {
@@ -281,17 +294,17 @@ const App = () => {
 
                 if (feature.geometry.type == 'LineString') {
                     fill = '#00000000'
-                    if (value == "true") {
+                    if (value == "true" || value == "TRUE" || value == true) {
                         stroke = '#50b161'
-                    } else if (value == "false") {
+                    } else if (value == "false" || value == "FALSE" || value == false) {
                         stroke = '#ff6663'
-                    } else if (value == "Public") {
+                    } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
                         stroke = '#755EA6'
-                    } else if (value == "Private") {
+                    } else if (value == "Private" || value == "PRIVATE" || value == "private") {
                         //Hub is private partnership
                         stroke = '#F4A25F'
-                    } else if (value == "Public-Private") {
+                    } else if (value == "Public-Private" || value == "PUBLIC-PRIVATE" || value == "public-private") {
                         //Hub is public-private partnership
                         stroke = '#74645E'
                     } else {
@@ -304,17 +317,17 @@ const App = () => {
                 }
 
                 if (feature.geometry.type == 'Point') {
-                    if (value == "true") {
+                    if (value == "true" || value == "TRUE" || value == true) {
                         fill = '#50b161'
-                    } else if (value == "false") {
+                    } else if (value == "false" || value == "FALSE" || value == false) {
                         fill = '#ff6663'
-                    } else if (value == "Public") {
+                    } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
                         fill = '#755EA6'
-                    } else if (value == "Private") {
+                    } else if (value == "Private" || value == "PRIVATE" || value == "private") {
                         //Hub is private partnership
                         fill = '#F4A25F'
-                    } else if (value == "Public-Private") {
+                    } else if (value == "Public-Private" || value == "PUBLIC-PRIVATE" || value == "public-private") {
                         //Hub is public-private partnership
                         fill = '#74645E'
                     } else {
@@ -345,7 +358,6 @@ const App = () => {
                 <div className='controller'>
                     <ThemeProvider theme={rffTheme}>
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                            <InputLabel id="simple-select-label"></InputLabel>
                             <Select
                                 color="primary"
                                 size="small"
@@ -372,12 +384,16 @@ const App = () => {
                     </ThemeProvider>
                 </div>
                 {backEnabled && <div className='reset' onClick={() => { resetZoom() }}><div className='reset-button'>← Back to US Map</div></div>}
+
                 <div className='canvas' id={backEnabled ? 'zoomed-canvas' : 'canvas'}>
                     <svg width={canvasWidth} height={canvasHeight} className='map-canvas'>
                         <g>
                             {theMap}
                         </g>
                     </svg>
+                    {!backEnabled && <div className='pnw' onClick={() => { buttonZoom(mapUrl_pnw) }}><div className='reset-button'>Zoom in on Pacific Northwest</div></div>}
+                    {!backEnabled && <div className='tx' onClick={() => { buttonZoom(mapUrl_tx) }}><div className='reset-button'>Zoom in on Texas</div></div>}
+                    {!backEnabled && <div className='nd' onClick={() => { buttonZoom(mapUrl_nd) }}><div className='reset-button'>Zoom in on North Dakota</div></div>}
                 </div>
                 <div className='legend-container'>
                     <div className='legend'>

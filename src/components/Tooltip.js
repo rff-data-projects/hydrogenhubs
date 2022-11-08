@@ -11,9 +11,9 @@ export const handleMouseOver = function (tooltipContent) {
 
         if (before == 'Feedstock') {
             //Feedstocks
-            if (tooltipContent.value == "true" || tooltipContent.value == true) {
+            if (tooltipContent.value == "true" || tooltipContent.value == true || tooltipContent.value == "TRUE") {
                 tooltipValue = after + " is a feedstock"
-            } else if (tooltipContent.value == "false" || tooltipContent.value == false) {
+            } else if (tooltipContent.value == "false" || tooltipContent.value == false || tooltipContent.value == "FALSE") {
                 tooltipValue = after + " is not a feedstock"
             } else {
                 //null
@@ -21,18 +21,18 @@ export const handleMouseOver = function (tooltipContent) {
             }
         } else if (before == 'End Uses') {
             //End uses
-            if (tooltipContent.value == "true" || tooltipContent.value == true) {
+            if (tooltipContent.value == "true" || tooltipContent.value == true || tooltipContent.value == "TRUE") {
                 tooltipValue = after + " is an end use"
-            } else if (tooltipContent.value == "false" || tooltipContent.value == false) {
+            } else if (tooltipContent.value == "false" || tooltipContent.value == false || tooltipContent.value == "FALSE") {
                 tooltipValue = after + " is not an end use"
             } else {
                 //null
                 tooltipValue = after + " end use status unknown"
             }
         } else {
-            if (tooltipContent.value == "Public" || tooltipContent.value == false) {
+            if (tooltipContent.value == "Public" || tooltipContent.value == "PUBLIC") {
                 tooltipValue = "Public partnership"
-            } else if (tooltipContent.value == "Private" || tooltipContent.value == false) {
+            } else if (tooltipContent.value == "Private" || tooltipContent.value == "PRIVATE") {
                 tooltipValue = "Private partnership"
             } else {
                 tooltipValue = "Public-private partnership"

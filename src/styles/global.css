@@ -92,12 +92,13 @@ path.LineString {
     justify-content: center;
 }
 
-.reset {
+.reset, .pnw, .tx, .nd {
     font-size: 16px;
     margin-top: 10px;
     display: flex;
     margin-left: 30px;
     width: auto;
+    z-index: 5;
 }
 
 .reset-button {
@@ -121,11 +122,11 @@ path.LineString {
     color: white;
 }
 
-.variable.true, .legend-icon.true {
+.variable.true, .legend-icon.true, .variable.TRUE {
     background-color: #50b161;
 }
 
-.variable.false, .legend-icon.false {
+.variable.false, .legend-icon.false, .variable.FALSE {
     background-color: #ff6663;
 }
 
@@ -147,8 +148,9 @@ path.LineString {
 }
 
 .canvas {
-    margin: 0px auto;
+    margin: 40px auto 0px;
     max-width: 900px;
+    position: relative;
 }
 
 .map-canvas {
@@ -316,3 +318,21 @@ h2 {
     rgba(0,0,0,0) calc(50% + 3px))
 }
 
+.pnw {
+    position: absolute;
+    top: -40px;
+    left: 0px;
+}
+
+.tx { 
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+}
+
+.nd { 
+
+    position: absolute;
+    top: 0px;
+    left: 45%;
+}
