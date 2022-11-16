@@ -27,6 +27,7 @@ body {
 
 #tooltip { 
     display: none; 
+    position: absolute;
     width: 340px;
     margin: 20px;
     margin-top: -20px;
@@ -34,6 +35,47 @@ body {
     padding: 15px;
     border-radius: 4px;
     z-index: 15
+}
+
+#largetooltip { 
+    display: none;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    display: none;
+    position: absolute;
+    height: 100vh;
+    border-radius: 4px;
+    z-index: 15;
+    background-color:#000000bd;
+}
+
+#exit { 
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+    margin-right: 2px;
+    position: absolute;
+    right: 30px;
+    cursor: pointer;
+}
+
+#inter {
+    max-width: 500px;
+    margin: 30px auto;
+    position: relative;
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #537990;
+}
+
+#exit { 
+    margin: 0px;
+    margin-right: 10px;
+    z-index: 100;
+    position: absolute;
 }
 
 .map-canvas path {
@@ -51,16 +93,6 @@ body {
     button.MuiButtonBase-root {
         font-size: 13px;
     }
-}
-
-#zoomed-canvas path[stateName="Texas"],#zoomed-canvas path[stateName="Washington"],#zoomed-canvas path[stateName="Oregon"],#zoomed-canvas path[stateName="Idaho"],#zoomed-canvas path[stateName="North Dakota"] {
-    cursor: default;
-}
-
-path[stateName="Texas"],path[stateName="Washington"],path[stateName="Oregon"],path[stateName="Idaho"],path[stateName="North Dakota"] {
-    cursor: -moz-zoom-in;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
 }
 
 li.MuiListSubheader-root {

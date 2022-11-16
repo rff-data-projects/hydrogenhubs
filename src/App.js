@@ -9,7 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import ListSubheader from '@mui/material/ListSubheader';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { handleMouseOver, handleMouseOut, handleMouseMove } from './components/Tooltip.js'
+import { handleMouseOver, handleMouseOut, handleMouseMove, handleClick, handleExit } from './components/Tooltip.js'
 import { svg } from 'd3'
 
 const App = () => {
@@ -141,6 +141,12 @@ const App = () => {
             .append("div")
             .attr("id", "tooltip")
             .attr("style", "position: absolute; display: none")
+
+
+        // d3.select("body")
+        //     .append("div")
+        //     .attr("id", "largetooltip")
+        //     .attr("style", "position: absolute; display: none")
     }, [])
 
     /* - - Resetting Zoom - - */
@@ -172,41 +178,41 @@ const App = () => {
 
     const checkZoom = (event) => {
 
-        if (event.target.attributes.stateName.value) {
-            if (event.target.attributes.stateName.value == 'Texas') {
+        // if (event.target.attributes.stateName.value) {
+        //     if (event.target.attributes.stateName.value == 'Texas') {
 
-                d3.json(mapUrl_tx).then(data => {
-                    setMapData((prevState) => {
-                        return { ...prevState, data: data, loading: false };
-                    });
-                })
+        //         d3.json(mapUrl_tx).then(data => {
+        //             setMapData((prevState) => {
+        //                 return { ...prevState, data: data, loading: false };
+        //             });
+        //         })
 
-                setBackEnabled(true)
+        //         setBackEnabled(true)
 
-            } else if (event.target.attributes.stateName.value == 'Idaho' || event.target.attributes.stateName.value == 'Washington' || event.target.attributes.stateName.value == 'Oregon') {
+        //     } else if (event.target.attributes.stateName.value == 'Idaho' || event.target.attributes.stateName.value == 'Washington' || event.target.attributes.stateName.value == 'Oregon') {
 
-                d3.json(mapUrl_pnw).then(data => {
-                    setMapData((prevState) => {
-                        return { ...prevState, data: data, loading: false };
-                    });
-                })
+        //         d3.json(mapUrl_pnw).then(data => {
+        //             setMapData((prevState) => {
+        //                 return { ...prevState, data: data, loading: false };
+        //             });
+        //         })
 
-                setBackEnabled(true)
+        //         setBackEnabled(true)
 
-            } else if (event.target.attributes.stateName.value == 'North Dakota') {
+        //     } else if (event.target.attributes.stateName.value == 'North Dakota') {
 
-                d3.json(mapUrl_nd).then(data => {
-                    setMapData((prevState) => {
-                        return { ...prevState, data: data, loading: false };
-                    });
-                })
+        //         d3.json(mapUrl_nd).then(data => {
+        //             setMapData((prevState) => {
+        //                 return { ...prevState, data: data, loading: false };
+        //             });
+        //         })
 
-                setBackEnabled(true)
+        //         setBackEnabled(true)
 
-            } else {
+        //     } else {
 
-            }
-        }
+        //     }
+        // }
 
         // if (event.target.attributes.stateName.value == 'Texas') {
         //     setMapData(mapUrl_tx)
@@ -254,7 +260,6 @@ const App = () => {
                     "nonprofit": value[0]['Nonprofit'],
                     "academic": value[0]['Academic']
                 }
-
                 value = value[0][mapVariable]
             } else {
                 value = null
@@ -288,7 +293,7 @@ const App = () => {
                         fill = '#c5ced3'
                     }
                     return (
-                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
+                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} onClick={() => {handleClick(tooltipValues)}} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
                     )
                 }
 
@@ -312,7 +317,7 @@ const App = () => {
                         //null
                     }
                     return (
-                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
+                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke}  onMouseOver={() => { handleMouseOver(tooltipValues) }} onClick={() => {handleClick(tooltipValues)}} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
                     )
                 }
 
@@ -337,7 +342,7 @@ const App = () => {
                     const [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
 
                     return (
-                        <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
+                        <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onClick={() => {handleClick(tooltipValues)}} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
                     )
                 }
             } else {
@@ -448,7 +453,7 @@ const App = () => {
                             <div className='legend-item'>
                                 <div className='legend-icon within'>
                                 </div>
-                                <div className='legend-value'>Hub within a State
+                                <div className='legend-value'>Hub within another Hub
                                 </div>
                             </div>
                             <div className='legend-item'>
@@ -457,6 +462,14 @@ const App = () => {
                                 <div className='legend-value'>Pipeline
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="largetooltip">
+                    <div id='inter'> 
+                        <div id='exit' onClick={() => {handleExit()}}>╳
+                        </div>
+                        <div id='inner'>
                         </div>
                     </div>
                 </div>
