@@ -348,3 +348,46 @@ h2 {
         top: -45px;
     }
 }
+
+path[fill='#50b161']:hover,circle[fill='#50b161']:hover {
+    fill:#379848;
+}
+
+path[fill='#ff6663']:hover,circle[fill='#ff6663']:hover {
+    fill:#E64D4A;
+}
+
+path[fill='#c5ced3']:hover,circle[fill='#c5ced3']:hover {
+    fill:#ACB5BA;
+}
+
+path[fill='#755EA6']:hover,circle[fill='#755EA6']:hover {
+    fill:#5C458D;
+}
+
+path[fill='#F4A25F']:hover,circle[fill='#F4A25F']:hover {
+    fill:#DB8946;
+}
+
+path[fill='#74645E']:hover,circle[fill='#74645E']:hover {
+    fill:#5B4B45;
+}
+
+path[stroke='#50b161'].LineString:hover {
+    stroke:#379848;
+}
+path[stroke='#ff6663'].LineString:hover {
+    stroke:#E64D4A;
+}
+path[stroke='#c5ced3'].LineString:hover {
+    stroke:#ACB5BA;
+}
+path[stroke='#755EA6'].LineString:hover {
+    stroke:#5C458D;
+}
+path[stroke='#F4A25F'].LineString:hover {
+    stroke:#DB8946;
+}
+path[stroke='#74645E'].LineString:hover {
+    stroke:#5B4B45;
+}
