@@ -171,15 +171,15 @@ export const handleClick = function (tooltipContent) {
         <div class='divider'></div>
         <div class='minor-label'>Lead Partner</div>
         <div class='minor'>` + tooltipContent.lead + `</div>
-        <div class='minor-label'>Corporate Partner(s)</div>
+        <div class='minor-label'>Corporate Partners</div>
         <div class='minor'>` + tooltipContent.corporate + `</div> 
-        <div class='minor-label'>Finance Partner(s)</div>
+        <div class='minor-label'>Finance Partners</div>
         <div class='minor'>` + tooltipContent.finance + `</div>
-        <div class='minor-label'>Corporate Partner(s)</div>
-        <div class='minor'>` + tooltipContent.governance + `</div> 
-        <div class='minor-label'>Finance Partner(s)</div>
+        <div class='minor-label'>Government Partners</div>
+        <div class='minor'>` + tooltipContent.government + `</div> 
+        <div class='minor-label'>Finance Partners</div>
         <div class='minor'>` + tooltipContent.nonprofit + `</div>
-        <div class='minor-label'>Academic Partner(s)</div>
+        <div class='minor-label'>Academic Partners</div>
         <div class='minor'>` + tooltipContent.academic + `</div>
         
         `

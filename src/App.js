@@ -246,6 +246,8 @@ const App = () => {
             //Check if there's data (if not, it's basemap, and set data to null)
             if (value[0]) {
 
+                console.log(value[0])
+
                 //Create tooltip values
                 tooltipValues =
                 {
