@@ -453,7 +453,7 @@ const App = () => {
                             <div className='legend-item'>
                                 <div className='legend-icon within'>
                                 </div>
-                                <div className='legend-value'>Hub within another Hub
+                                <div className='legend-value'>State or Within-State Hub
                                 </div>
                             </div>
                             <div className='legend-item'>
