@@ -53,7 +53,7 @@ const App = () => {
     const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
     const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/PNW.json'
     const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
-    const raw_csv = 'https://gist.githubusercontent.com/RFForg/794701a9fff5cac2f27cfc8afe1cb666/raw/4c3bf9f2196910bb0bf1eced589c0275559d6c78/hhdata.csv'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/9b07165d9be0482d5edfbb951baaf10a/raw/92beda62874717ed27efad6feb591ccca164d983/testhh.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
@@ -253,12 +253,12 @@ const App = () => {
                     "variableName": mapVariable,
                     "value": value[0][mapVariable],
                     "description": value[0]['Description'],
-                    "lead": value[0]['Lead'],
-                    "corporate": value[0]['Corporate'],
-                    "finance": value[0]['Finance'],
-                    "government": value[0]['Government'],
-                    "nonprofit": value[0]['Nonprofit'],
-                    "academic": value[0]['Academic']
+                    "lead": value[0]['lead'],
+                    "corporate": value[0]['corporate'],
+                    "finance": value[0]['finance'],
+                    "government": value[0]['government'],
+                    "nonprofit": value[0]['nonprofit'],
+                    "academic": value[0]['academic']
                 }
                 value = value[0][mapVariable]
             } else {
