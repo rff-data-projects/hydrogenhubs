@@ -39,10 +39,10 @@ body {
 
 #largetooltip { 
     display: none;
-    width: 100vw;
+    width: calc(100vw-10px);
     top: 0px;
-    left: 0px;
-    right: 0px;
+    left: 5px;
+    right: 5px;
     bottom: 0px;
     display: none;
     position: absolute;

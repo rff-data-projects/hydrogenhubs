@@ -60,7 +60,9 @@ export const handleMouseOver = function (tooltipContent) {
         <div class='secondary'>`+ tooltipContent.description + `</div>
         <div class='divider'></div>
         <div class='minor-label'>Lead Partner</div>
-        <div class='minor'>` + tooltipContent.lead + `</div>`
+        <div class='minor'>` + tooltipContent.lead + `</div>
+        <div class='divider'></div>
+        <div class='minor-label'>Click on the hub for more information</div>`
             )
     }
 
@@ -163,7 +165,7 @@ export const handleClick = function (tooltipContent) {
 
         d3.select("#inner")
             .html(
-                `<h2>` + tooltipContent.name + `</h2>
+                `<h2 style='width:90%'>` + tooltipContent.name + `</h2>
             <div class='` + variableClassName + ` variable'>` + tooltipValue + `</div>
         <div class='secondary'>`+ tooltipContent.description + `</div>
         <div class='divider'></div>
