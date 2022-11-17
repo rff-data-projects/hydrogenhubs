@@ -465,9 +465,9 @@ const App = () => {
                         </div>
                     </div>
                 </div>
-                <div id="largetooltip">
+                <div id="largetooltip" onClick={(event) => {handleExit(event)}}>
                     <div id='inter'> 
-                        <div id='exit' onClick={() => {handleExit()}}>╳
+                        <div id='exit' onClick={(event) => {handleExit(event)}}>╳
                         </div>
                         <div id='inner'>
                         </div>

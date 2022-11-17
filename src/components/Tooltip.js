@@ -99,9 +99,12 @@ export const handleMouseMove = function (event) {
 
 }
 
-export const handleExit = () => {
-    d3.select("#largetooltip")
+export const handleExit = (event) => {
+
+    if (event.target.id == "exit" || event.target.id == "largetooltip") {
+        d3.select("#largetooltip")
         .style("display", "none")
+    }
 }
 
 export const handleClick = function (tooltipContent) {
