@@ -34,7 +34,7 @@ body {
     border: 1px solid #537990;
     padding: 15px;
     border-radius: 4px;
-    z-index: 15
+    z-index: 15;
 }
 
 #largetooltip { 

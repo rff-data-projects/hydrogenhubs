@@ -49,11 +49,11 @@ const App = () => {
 
     /* - - - - Map data - - - - */
 
-    const mapUrl = 'https://gist.githubusercontent.com/RFForg/3a12fc7534562dd1d13d236e5dde5490/raw/cc0b94a181198bb5ec22ca6c8faba84c63978219/hhub-updated.json'
+    const mapUrl = 'https://gist.githubusercontent.com/yuzhuuu/4fc7c47b97ca8c225abb2dcb219bf6d9/raw/ec88565e3f55df4cd633f0878264bcef5c5b8b6e/rffhydrogenhubsmap.json'
     const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
-    const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/PNW.json'
+    const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/109e457fb08696990e28d183fe92c95f/raw/1abbf3cb7acd06b4ef267b2fca32afa33ade1324/pnw.json'
     const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
-    const raw_csv = 'https://gist.githubusercontent.com/RFForg/9b07165d9be0482d5edfbb951baaf10a/raw/92beda62874717ed27efad6feb591ccca164d983/testhh.csv'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/88ec6360edfe4bcfb22acde7fea5f9f9/raw/dfdd9fa5732abf962ad77e1bd3c21a0e5f360495/updatedcorehhdata.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
