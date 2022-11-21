@@ -269,7 +269,7 @@ const App = () => {
 
             //Fill and stroke default values
             let fill = '#A6B2BA'
-            let stroke = '#A6B2BA'
+            let stroke = '#737F87'
 
             //First differentiate between hubs and the basemap; then segment geometry.type by "Point" or "LineString" or "Polygon" 
             if (feature.properties.hub == true) {
@@ -280,7 +280,7 @@ const App = () => {
                         fill = '#50b161'
                     } else if (value == "false" || value == "FALSE" || value == false) {
                         //Hub is false
-                        fill = '#ffcdcc'
+                        fill = '#ff9a98'
                     } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
                         fill = '#755EA6'
@@ -304,10 +304,10 @@ const App = () => {
                     if (value == "true" || value == "TRUE" || value == true) {
                         stroke = '#50b161'
                     } else if (value == "false" || value == "FALSE" || value == false) {
-                        stroke = '#ffcdcc'
+                        stroke = '#ff9a98'
                     } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
-                        stroke = '#755EA6'
+                        stroke = '#737F87'
                     } else if (value == "Private" || value == "PRIVATE" || value == "private") {
                         //Hub is private partnership
                         stroke = '#F4A25F'
@@ -327,10 +327,10 @@ const App = () => {
                     if (value == "true" || value == "TRUE" || value == true) {
                         fill = '#50b161'
                     } else if (value == "false" || value == "FALSE" || value == false) {
-                        fill = '#ffcdcc'
+                        fill = '#ff9a98'
                     } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
-                        fill = '#755EA6'
+                        fill = '#737F87'
                     } else if (value == "Private" || value == "PRIVATE" || value == "private") {
                         //Hub is private partnership
                         fill = '#F4A25F'

@@ -105,7 +105,7 @@ li.MuiListSubheader-root {
 }
 
 fieldset.MuiOutlinedInput-notchedOutline {
-    border-color: #A6B2BA;
+    border-color: #737F87;
 }
 
 li.MuiButtonBase-root {
@@ -116,7 +116,7 @@ li.MuiButtonBase-root {
 
 path.LineString {
     stroke-width: 2.5px;
-    filter: drop-shadow(-1px -1px 0px #A6B2BA) drop-shadow(1px -1px 0px #A6B2BA) drop-shadow(1px 1px 0px #A6B2BA) drop-shadow(-1px 1px 0px #A6B2BA);
+    filter: drop-shadow(-1px -1px 0px #737F87) drop-shadow(1px -1px 0px #737F87) drop-shadow(1px 1px 0px #737F87) drop-shadow(-1px 1px 0px #737F87);
 }
 
 .controller {
@@ -135,7 +135,7 @@ path.LineString {
 
 .reset-button {
     width: auto;
-    border: 1px solid #A6B2BA;
+    border: 1px solid #737F87;
     padding: 6px 12px;
     border-radius: 35px;
     cursor: pointer;
@@ -159,7 +159,7 @@ path.LineString {
 }
 
 .variable.false, .legend-icon.false, .variable.FALSE {
-    background-color: #ffcdcc;
+    background-color: #ff9a98;
     color: #04263cac;
 }
 
@@ -193,7 +193,7 @@ path.LineString {
 
 circle {
     stroke-width: 1px;
-    stroke: #A6B2BA;
+    stroke: #737F87;
 }
 
 select#variable {
@@ -327,7 +327,7 @@ h2 {
 .legend-icon {
     width: 20px;
     height: 20px;
-    border: 1px solid #A6B2BA;
+    border: 1px solid #737F87;
     border-radius: 5px;
 }
 
@@ -344,10 +344,10 @@ h2 {
 .legend-icon.pipeline {
     background: linear-gradient(165deg, 
     rgba(0,0,0,0) calc(50% - 3px), 
-    #A6B2BA calc(50% - 2px), 
+    #737F87 calc(50% - 2px), 
     #FFFFFF calc(50% - 1px), 
     #FFFFFF calc(50% + 1px), 
-    #A6B2BA calc(50% + 2px), 
+    #737F87 calc(50% + 2px), 
     rgba(0,0,0,0) calc(50% + 3px))
 }
 
@@ -386,8 +386,8 @@ path[fill='#50b161']:hover,circle[fill='#50b161']:hover {
     fill:#379848;
 }
 
-path[fill='#ffcdcc']:hover,circle[fill='#ffcdcc']:hover {
-    fill:#ff9a98;
+path[fill='#ff9a98']:hover,circle[fill='#ff9a98']:hover {
+    fill:#FF6663;
 }
 
 path[fill='#c5ced3']:hover,circle[fill='#c5ced3']:hover {
@@ -409,8 +409,8 @@ path[fill='#74645E']:hover,circle[fill='#74645E']:hover {
 path[stroke='#50b161'].LineString:hover {
     stroke:#379848;
 }
-path[stroke='#ffcdcc'].LineString:hover {
-    stroke:#ff9a98;
+path[stroke='#ff9a98'].LineString:hover {
+    stroke:#FF6663;
 }
 path[stroke='#c5ced3'].LineString:hover {
     stroke:#ACB5BA;
