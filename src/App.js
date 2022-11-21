@@ -49,7 +49,7 @@ const App = () => {
 
     /* - - - - Map data - - - - */
 
-    const mapUrl = 'https://gist.githubusercontent.com/RFForg/e976074e1998642bc9436d72ea3de294/raw/58955f7b376788009cea9621bf9956c7d21dbe84/hhmain.json'
+    const mapUrl = 'https://gist.githubusercontent.com/RFForg/3a12fc7534562dd1d13d236e5dde5490/raw/cc0b94a181198bb5ec22ca6c8faba84c63978219/hhub-updated.json'
     const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
     const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/PNW.json'
     const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
@@ -280,7 +280,7 @@ const App = () => {
                         fill = '#50b161'
                     } else if (value == "false" || value == "FALSE" || value == false) {
                         //Hub is false
-                        fill = '#ff6663'
+                        fill = '#ffcdcc'
                     } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
                         fill = '#755EA6'
@@ -304,7 +304,7 @@ const App = () => {
                     if (value == "true" || value == "TRUE" || value == true) {
                         stroke = '#50b161'
                     } else if (value == "false" || value == "FALSE" || value == false) {
-                        stroke = '#ff6663'
+                        stroke = '#ffcdcc'
                     } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
                         stroke = '#755EA6'
@@ -327,7 +327,7 @@ const App = () => {
                     if (value == "true" || value == "TRUE" || value == true) {
                         fill = '#50b161'
                     } else if (value == "false" || value == "FALSE" || value == false) {
-                        fill = '#ff6663'
+                        fill = '#ffcdcc'
                     } else if (value == "Public" || value == "PUBLIC" || value == "public") {
                         //Hub is public partnership
                         fill = '#755EA6'

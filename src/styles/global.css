@@ -159,7 +159,8 @@ path.LineString {
 }
 
 .variable.false, .legend-icon.false, .variable.FALSE {
-    background-color: #ff6663;
+    background-color: #ffcdcc;
+    color: #04263cac;
 }
 
 .variable.null, .legend-icon.unknown {
@@ -385,8 +386,8 @@ path[fill='#50b161']:hover,circle[fill='#50b161']:hover {
     fill:#379848;
 }
 
-path[fill='#ff6663']:hover,circle[fill='#ff6663']:hover {
-    fill:#E64D4A;
+path[fill='#ffcdcc']:hover,circle[fill='#ffcdcc']:hover {
+    fill:#ff9a98;
 }
 
 path[fill='#c5ced3']:hover,circle[fill='#c5ced3']:hover {
@@ -408,8 +409,8 @@ path[fill='#74645E']:hover,circle[fill='#74645E']:hover {
 path[stroke='#50b161'].LineString:hover {
     stroke:#379848;
 }
-path[stroke='#ff6663'].LineString:hover {
-    stroke:#E64D4A;
+path[stroke='#ffcdcc'].LineString:hover {
+    stroke:#ff9a98;
 }
 path[stroke='#c5ced3'].LineString:hover {
     stroke:#ACB5BA;
