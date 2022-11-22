@@ -49,7 +49,7 @@ const App = () => {
 
     /* - - - - Map data - - - - */
 
-    const mapUrl = 'https://gist.githubusercontent.com/yuzhuuu/4fc7c47b97ca8c225abb2dcb219bf6d9/raw/ec88565e3f55df4cd633f0878264bcef5c5b8b6e/rffhydrogenhubsmap.json'
+    const mapUrl = 'https://gist.githubusercontent.com/yuzhuuu/4fc7c47b97ca8c225abb2dcb219bf6d9/raw/9a19cd848bd272636255a48b39786e1afb375d1f/rffhydrogenhubsmap.json'
     const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
     const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/109e457fb08696990e28d183fe92c95f/raw/1abbf3cb7acd06b4ef267b2fca32afa33ade1324/pnw.json'
     const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
