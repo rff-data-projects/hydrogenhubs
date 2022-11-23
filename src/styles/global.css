@@ -39,7 +39,7 @@ body {
 
 #largetooltip { 
     display: none;
-    width: calc(100vw-10px);
+    width: calc(100%-20px);
     top: 0px;
     left: 5px;
     right: 5px;
@@ -63,7 +63,7 @@ body {
 }
 
 #inter {
-    max-width: 500px;
+    max-width: 750px;
     margin: 30px auto;
     position: relative;
     padding: 30px;
