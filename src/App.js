@@ -405,9 +405,9 @@ const App = () => {
                             {theMap}
                         </g>
                     </svg>
-                    {!backEnabled && <div className='pnw' onClick={() => { buttonZoom(mapUrl_pnw) }}><div className='reset-button'>Zoom in on Pacific Northwest</div></div>}
-                    {!backEnabled && <div className='tx' onClick={() => { buttonZoom(mapUrl_tx) }}><div className='reset-button'>Zoom in on Texas</div></div>}
-                    {!backEnabled && <div className='nd' onClick={() => { buttonZoom(mapUrl_nd) }}><div className='reset-button'>Zoom in on North Dakota</div></div>}
+                    {!backEnabled && <div className='pnw' onClick={() => { buttonZoom(mapUrl_pnw) }}><div className='reset-button'>View Pacific Northwest</div></div>}
+                    {!backEnabled && <div className='tx' onClick={() => { buttonZoom(mapUrl_tx) }}><div className='reset-button'>View Texas</div></div>}
+                    {!backEnabled && <div className='nd' onClick={() => { buttonZoom(mapUrl_nd) }}><div className='reset-button'>View North Dakota</div></div>}
                 </div>
                 <div className='legend-container'>
                     <div className='legend'>
