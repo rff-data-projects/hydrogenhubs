@@ -53,7 +53,7 @@ const App = () => {
     const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
     const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/109e457fb08696990e28d183fe92c95f/raw/1abbf3cb7acd06b4ef267b2fca32afa33ade1324/pnw.json'
     const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
-    const raw_csv = 'https://gist.githubusercontent.com/RFForg/88ec6360edfe4bcfb22acde7fea5f9f9/raw/8dab4a0747261ff757ed6d55c0d84f2932a69e73/updatedcorehhdata.csv'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/88ec6360edfe4bcfb22acde7fea5f9f9/raw/d651ccda575ca60bcc1ff8d75610fbfbbf4700c7/updatedcorehhdata.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
