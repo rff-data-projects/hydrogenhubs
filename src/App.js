@@ -62,6 +62,8 @@ const App = () => {
     const [backEnabled, setBackEnabled] = useState(false)
     const [partnershipSelected, setPartnershipSelected] = useState(false)
 
+    const [activeLabel, setActiveLabel] = useState("Feedstock")
+
     /* - - - - Dynamic canvas width - - - - */
 
     let initialWindow = window.innerWidth
@@ -97,11 +99,14 @@ const App = () => {
 
         if (event.target.value.split(":")[0] == 'Feedstock') {
             setFormattedVariable('a feedstock')
+            setActiveLabel("Feedstock")
         } else if (event.target.value.split(":")[0] == 'End Uses') {
             setFormattedVariable('an end use')
+            setActiveLabel("End Use")
         }
 
         if (event.target.value == 'Partnership') {
+            setActiveLabel("Other")
             setPartnershipSelected(true)
         } else {
             setPartnershipSelected(false)
@@ -365,10 +370,12 @@ const App = () => {
                 <div className='controller'>
                     <ThemeProvider theme={rffTheme}>
                         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                            <InputLabel id="simple-select-label">{activeLabel}</InputLabel>
                             <Select
                                 color="primary"
                                 size="small"
                                 labelId="simple-select-label"
+                                label={activeLabel}
                                 id="simple-select"
                                 value={mapVariable}
                                 displayEmpty
@@ -384,7 +391,7 @@ const App = () => {
                                 <MenuItem value="End Uses: Transportation">Transportation</MenuItem>
                                 <MenuItem value="End Uses: Power">Power</MenuItem>
                                 <MenuItem value="End Uses: Residential and Commercial Heating">Residential + Commercial Heating</MenuItem>
-                                <ListSubheader>Partnership Type</ListSubheader>
+                                <ListSubheader>Other</ListSubheader>
                                 <MenuItem value="Partnership">Partnership Type</MenuItem>
                             </Select>
                         </FormControl>
