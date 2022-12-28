@@ -50,6 +50,8 @@ export const handleMouseOver = function (tooltipContent) {
             variableClassName = tooltipContent.value
         }
 
+        console.log("hover event")
+
         d3.select("#tooltip")
             .style("display", "block")
             .style("background-color", "#FFFFFF")
@@ -110,6 +112,7 @@ export const handleExit = (event) => {
 }
 
 export const handleClick = function (tooltipContent) {
+    
     d3.select("#tooltip")
         .style("display", "none")
 
@@ -160,31 +163,74 @@ export const handleClick = function (tooltipContent) {
             variableClassName = tooltipContent.value
         }
 
+        /* Construct the tooltip */
+
+        let tooltipText = `<h2 style='width:90%'>` + tooltipContent.name + `</h2>
+            <div class='` + variableClassName + ` variable'>` + tooltipValue + `</div>
+        <div class='secondary'>`+ tooltipContent.description + `</div>
+        <div class='divider'></div>`
+
+        if (tooltipContent.lead!='' && tooltipContent.lead!='[TBD]') { 
+            tooltipText += `<div class='minor-label'>Lead Partner</div>
+            <div class='minor'>` + tooltipContent.lead + `</div>`
+        }
+        
+        if (tooltipContent.corporate!='' && tooltipContent.corporate!='[TBD]') { 
+            tooltipText += `<div class='minor-label'>Corporate Partners</div>
+            <div class='minor'>` + tooltipContent.corporate + `</div>`
+        }
+
+        if (tooltipContent.finance!='' && tooltipContent.finance!='[TBD]') {
+            tooltipText += `<div class='minor-label'>Finance Partners</div>
+            <div class='minor'>` + tooltipContent.finance + `</div>`
+        }
+
+        if (tooltipContent.government!='' && tooltipContent.government!='[TBD]') {
+            tooltipText += `<div class='minor-label'>Government Partners</div>
+            <div class='minor'>` + tooltipContent.government + `</div>`
+        }
+
+        if (tooltipContent.nonprofit!='' && tooltipContent.nonprofit!='[TBD]') {
+            tooltipText += `<div class='minor-label'>Nonprofit Partners</div>
+            <div class='minor'>` + tooltipContent.nonprofit + `</div>`
+        }
+
+        if (tooltipContent.academic!='' && tooltipContent.academic!='[TBD]') {
+            tooltipText += `<div class='minor-label'>Academic Partners</div>
+            <div class='minor'>` + tooltipContent.academic + `</div>`
+        }
+
+        tooltipText += `<div class='divider'></div>`
+            
+        if (tooltipContent.productionCapacity!='' && tooltipContent.productionCapacity!='[TBD]') {
+            tooltipText += `<div class='minor-label'>Production Capacity</div>
+            <div class='minor'>` + tooltipContent.productionCapacity + `</div>`
+        }
+
+        if (tooltipContent.fundingNeeds!='' && tooltipContent.fundingNeeds!='[TBD]') {
+            tooltipText += `<div class='minor-label'>Funding Needs</div>
+            <div class='minor'>` + tooltipContent.fundingNeeds + `</div>`
+        }
+
+        if (tooltipContent.conceptNote=='' && tooltipContent.pressRelease=='') {
+        } else {
+            tooltipText += `<div class='divider'></div><div class='minor-label'>Additional Resources</div>`
+
+            if (tooltipContent.conceptNote!='') {
+                tooltipText += `<a href=` + tooltipContent.conceptNote + `><a href=` + tooltipContent.conceptNote + `><div class='minor'>Concept Note</div></a>`
+            }
+
+            if (tooltipContent.pressRelease!='') {
+                tooltipText += `<a href=` + tooltipContent.pressRelease + `><a href=` + tooltipContent.pressRelease + `><div class='minor'>Press Release</div></a>`
+            }
+
+        }
+
         d3.select("#largetooltip")
             .style("display", "block")
 
         d3.select("#inner")
-            .html(
-                `<h2 style='width:90%'>` + tooltipContent.name + `</h2>
-            <div class='` + variableClassName + ` variable'>` + tooltipValue + `</div>
-        <div class='secondary'>`+ tooltipContent.description + `</div>
-        <div class='divider'></div>
-        <div class='minor-label'>Lead Partner</div>
-        <div class='minor'>` + tooltipContent.lead + `</div>
-        <div class='minor-label'>Corporate Partners</div>
-        <div class='minor'>` + tooltipContent.corporate + `</div> 
-        <div class='minor-label'>Finance Partners</div>
-        <div class='minor'>` + tooltipContent.finance + `</div>
-        <div class='minor-label'>Government Partners</div>
-        <div class='minor'>` + tooltipContent.government + `</div> 
-        <div class='minor-label'>Nonprofit Partners</div>
-        <div class='minor'>` + tooltipContent.nonprofit + `</div>
-        <div class='minor-label'>Academic Partners</div>
-        <div class='minor'>` + tooltipContent.academic + `</div>
-        
-        `
-
-        )
+            .html(tooltipText)
                 
         
     }

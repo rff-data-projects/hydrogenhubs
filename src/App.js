@@ -53,7 +53,8 @@ const App = () => {
     const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
     const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/109e457fb08696990e28d183fe92c95f/raw/1abbf3cb7acd06b4ef267b2fca32afa33ade1324/pnw.json'
     const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
-    const raw_csv = 'https://gist.githubusercontent.com/RFForg/88ec6360edfe4bcfb22acde7fea5f9f9/raw/d651ccda575ca60bcc1ff8d75610fbfbbf4700c7/updatedcorehhdata.csv'
+    const mapUrl_mw = 'https://gist.githubusercontent.com/yuzhuuu/c022493b803fb8b409dfe9c6a7eb3f0b/raw/156fff1cbd5d384f6df4e2653a55bada62f7ce01/wishh.json'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/2ada382506fa07a7458014318f77675b/raw/5b7ac5b4186e32534dbbe3728eb54db5edbd2260/raw_csv_test_dec28.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
@@ -181,52 +182,6 @@ const App = () => {
 
     }
 
-    const checkZoom = (event) => {
-
-        // if (event.target.attributes.stateName.value) {
-        //     if (event.target.attributes.stateName.value == 'Texas') {
-
-        //         d3.json(mapUrl_tx).then(data => {
-        //             setMapData((prevState) => {
-        //                 return { ...prevState, data: data, loading: false };
-        //             });
-        //         })
-
-        //         setBackEnabled(true)
-
-        //     } else if (event.target.attributes.stateName.value == 'Idaho' || event.target.attributes.stateName.value == 'Washington' || event.target.attributes.stateName.value == 'Oregon') {
-
-        //         d3.json(mapUrl_pnw).then(data => {
-        //             setMapData((prevState) => {
-        //                 return { ...prevState, data: data, loading: false };
-        //             });
-        //         })
-
-        //         setBackEnabled(true)
-
-        //     } else if (event.target.attributes.stateName.value == 'North Dakota') {
-
-        //         d3.json(mapUrl_nd).then(data => {
-        //             setMapData((prevState) => {
-        //                 return { ...prevState, data: data, loading: false };
-        //             });
-        //         })
-
-        //         setBackEnabled(true)
-
-        //     } else {
-
-        //     }
-        // }
-
-        // if (event.target.attributes.stateName.value == 'Texas') {
-        //     setMapData(mapUrl_tx)
-        // }
-        // if (stateName == 'Texas') {
-        //     console.log('arrived')
-        // }
-    }
-
     if (mapData.loading || !data) {
 
         /* - - - - Loading - - - - */
@@ -236,6 +191,9 @@ const App = () => {
         /* - - - - Content - - - - */
 
     } else {
+
+        /* First hide any accidental display of the tooltip while one map is hiding and the other is loading */
+        d3.select("#tooltip").style("display", "none")
 
         const path = d3.geoPath().projection(setMapProjection(mapData.data, canvasWidth, canvasHeight))
 
@@ -251,8 +209,6 @@ const App = () => {
             //Check if there's data (if not, it's basemap, and set data to null)
             if (value[0]) {
 
-                console.log(value[0])
-
                 //Create tooltip values
                 tooltipValues =
                 {
@@ -265,7 +221,11 @@ const App = () => {
                     "finance": value[0]['finance'],
                     "government": value[0]['government'],
                     "nonprofit": value[0]['nonprofit'],
-                    "academic": value[0]['academic']
+                    "academic": value[0]['academic'],
+                    "productionCapacity": value[0]['production capacity'],
+                    "fundingNeeds": value[0]['funding needs'],
+                    "conceptNote": value[0]['concept note'],
+                    "pressRelease": value[0]['press release']
                 }
                 value = value[0][mapVariable]
             } else {
@@ -356,7 +316,7 @@ const App = () => {
                 //state basemap
                 fill = '#ffffff'
                 return (
-                    <path id={feature.properties.code} className={feature.geometry.type} stateName={feature.properties.name} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onClick={(event) => { checkZoom(event) }} />
+                    <path id={feature.properties.code} className={feature.geometry.type} stateName={feature.properties.name} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} />
                 )
             }
 
@@ -405,9 +365,10 @@ const App = () => {
                             {theMap}
                         </g>
                     </svg>
-                    {!backEnabled && <div className='pnw' onClick={() => { buttonZoom(mapUrl_pnw) }}><div className='reset-button'>View Pacific Northwest</div></div>}
-                    {!backEnabled && <div className='tx' onClick={() => { buttonZoom(mapUrl_tx) }}><div className='reset-button'>View Texas</div></div>}
-                    {!backEnabled && <div className='nd' onClick={() => { buttonZoom(mapUrl_nd) }}><div className='reset-button'>View North Dakota</div></div>}
+                    {!backEnabled && <div className='pnw' onClick={() => { buttonZoom(mapUrl_pnw) }}><div className='reset-button'>🔍 Pacific Northwest</div></div>}
+                    {!backEnabled && <div className='tx' onClick={() => { buttonZoom(mapUrl_tx) }}><div className='reset-button'>🔍 Texas</div></div>}
+                    {!backEnabled && <div className='nd' onClick={() => { buttonZoom(mapUrl_nd) }}><div className='reset-button'>🔍 North Dakota</div></div>}
+                    {!backEnabled && <div className='mw' onClick={() => { buttonZoom(mapUrl_mw) }}><div className='reset-button'>🔍 Mountain West</div></div>}
                 </div>
                 <div className='legend-container'>
                     <div className='legend'>

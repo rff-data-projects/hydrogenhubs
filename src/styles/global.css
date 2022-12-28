@@ -209,6 +209,10 @@ input[type="range"] {
     margin-bottom: 5px;
 }
 
+#inner a {
+    color: #04273c;
+    border-bottom: 1px solid #04273c;
+}
 
 .select {
     margin-bottom: 20px;
@@ -353,25 +357,34 @@ h2 {
 
 .pnw {
     position: absolute;
-    top: -40px;
+    top: 0px;
     left: 0px;
 }
 
 .tx { 
     position: absolute;
-    bottom: 40px;
-    left: 50%;
+    bottom: 190px;
+    left: 43%;
 }
 
 .nd { 
     position: absolute;
-    top: 0px;
-    left: 45%;
+    top: 35px;
+    left: 42%;
+}
+.mw {
+    position: absolute;
+    top: 40%;
+    left: 30%;
 }
 
-@media only screen and (max-width: 600px) {
+.reset-button {
+    background: white;
+}
+
+@media only screen and (max-width: 760px) {
     .nd {
-        top: -25px;
+        top: -15px;
     }
     .tx { 
         left: 47%;
@@ -379,6 +392,26 @@ h2 {
     }
     .pnw {
         top: -45px;
+    }
+    .mw {
+        top: 40%;
+        left: 30%;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .nd {
+        top: -25px;
+    }
+    .tx { 
+        left: 47%;
+        bottom: 25px;
+    }
+    .pnw {
+        top: -50px;
+    }
+    .mw {
+        top: 30%;
+        left: 28%;
     }
 }
 
