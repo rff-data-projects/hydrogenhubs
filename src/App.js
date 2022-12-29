@@ -429,7 +429,7 @@ const App = () => {
                             <div className='legend-item'>
                                 <div className='legend-icon pipeline'>
                                 </div>
-                                <div className='legend-value'>Pipeline
+                                <div className='legend-value'>Pipeline/Transportation
                                 </div>
                             </div>
                         </div>
