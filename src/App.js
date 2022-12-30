@@ -316,7 +316,7 @@ const App = () => {
                 //state basemap
                 fill = '#ffffff'
                 return (
-                    <path id={feature.properties.code} className={feature.geometry.type} stateName={feature.properties.name} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} />
+                    <path id={feature.properties.code} className={feature.geometry.type} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} />
                 )
             }
 
