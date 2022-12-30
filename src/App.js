@@ -306,7 +306,7 @@ const App = () => {
                         fill = '#c5ced3'
                         //null
                     }
-                    const [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
+                    let [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
 
                     return (
                         <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onClick={() => {handleClick(tooltipValues)}} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
