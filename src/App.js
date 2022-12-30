@@ -306,6 +306,7 @@ const App = () => {
                         fill = '#c5ced3'
                         //null
                     }
+                    console.log(projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]]))
                     let [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
 
                     return (
