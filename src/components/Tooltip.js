@@ -29,6 +29,15 @@ export const handleMouseOver = function (tooltipContent) {
                 //null
                 tooltipValue = after + " end use status unknown"
             }
+        } else if (before == 'Encourage/Discourage') {
+            //Encourage/Discourage
+            if (tooltipContent.value == "True" || tooltipContent.value == "TRUE") {
+                tooltipValue = "Concept Encouraged by DOE"
+            } else if (tooltipContent.value == "False" || tooltipContent.value == "FALSE") {
+                tooltipValue = "Concept Discouraged by DOE"
+            } else {
+                tooltipValue = "No Encouraged/Discouraged Status Known"
+            } 
         } else {
             if (tooltipContent.value == "Public" || tooltipContent.value == "PUBLIC") {
                 tooltipValue = "Public partnership"
@@ -49,9 +58,6 @@ export const handleMouseOver = function (tooltipContent) {
         } else { 
             variableClassName = tooltipContent.value
         }
-
-        console.log("hover event")
-
         d3.select("#tooltip")
             .style("display", "block")
             .style("background-color", "#FFFFFF")
@@ -142,7 +148,19 @@ export const handleClick = function (tooltipContent) {
                 //null
                 tooltipValue = after + " end use status unknown"
             }
-        } else {
+        } else if (before == 'Encourage/Discourage') {
+            //Encourage/Discourage
+            if (tooltipContent.value == "True" || tooltipContent.value == "TRUE") {
+                tooltipValue = "Concept Encouraged by DOE"
+            } else if (tooltipContent.value == "False" || tooltipContent.value == "FALSE") {
+                tooltipValue = "Concept Discouraged by DOE"
+            } else {
+                tooltipValue = "No Encouraged/Discouraged Status Known"
+            } 
+        } else { 
+            //must be partnerships
+            console.log('reached this')
+            console.log(before)
             if (tooltipContent.value == "Public" || tooltipContent.value == "PUBLIC") {
                 tooltipValue = "Public partnership"
             } else if (tooltipContent.value == "Private" || tooltipContent.value == "PRIVATE") {

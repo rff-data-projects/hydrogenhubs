@@ -49,12 +49,12 @@ const App = () => {
 
     /* - - - - Map data - - - - */
 
-    const mapUrl = 'https://gist.githubusercontent.com/yuzhuuu/4fc7c47b97ca8c225abb2dcb219bf6d9/raw/9a19cd848bd272636255a48b39786e1afb375d1f/rffhydrogenhubsmap.json'
+    const mapUrl = 'https://gist.githubusercontent.com/yuzhuuu/550675f853a26d2c61abdbcebf25e5cb/raw/f6b0a8225680f97d4658d895fbb86a2cfe14cdaa/rffhydrogenhubsmap.json'
     const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
     const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/109e457fb08696990e28d183fe92c95f/raw/1abbf3cb7acd06b4ef267b2fca32afa33ade1324/pnw.json'
     const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
     const mapUrl_mw = 'https://gist.githubusercontent.com/yuzhuuu/c022493b803fb8b409dfe9c6a7eb3f0b/raw/156fff1cbd5d384f6df4e2653a55bada62f7ce01/wishh.json'
-    const raw_csv = 'https://gist.githubusercontent.com/RFForg/2ada382506fa07a7458014318f77675b/raw/5b7ac5b4186e32534dbbe3728eb54db5edbd2260/raw_csv_test_dec28.csv'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/8d89580a41b12cdb261b3fa2483cc7b3/raw/699e54cd2c07d939dd66477aaec166907b060e19/hhjan18.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
@@ -62,6 +62,7 @@ const App = () => {
 
     const [backEnabled, setBackEnabled] = useState(false)
     const [partnershipSelected, setPartnershipSelected] = useState(false)
+    const [encouragedSelected, setEncouragedSelected] = useState(false)
 
     const [activeLabel, setActiveLabel] = useState("Feedstock")
 
@@ -111,6 +112,13 @@ const App = () => {
             setPartnershipSelected(true)
         } else {
             setPartnershipSelected(false)
+        }
+
+        if (event.target.value == 'Encourage/Discourage') {
+            setActiveLabel("Other")
+            setEncouragedSelected(true)
+        } else {
+            setEncouragedSelected(false)
         }
 
     };
@@ -306,8 +314,9 @@ const App = () => {
                         fill = '#c5ced3'
                         //null
                     }
-                    console.log(projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]]))
-                    let [x, y] = projection([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
+                    let interimX = feature.geometry.coordinates[0]
+                    let interimY = feature.geometry.coordinates[1]
+                    let [x, y] = projection([interimX,interimY])
 
                     return (
                         <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onClick={() => {handleClick(tooltipValues)}} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
@@ -353,6 +362,7 @@ const App = () => {
                                 <MenuItem value="End Uses: Power">Power</MenuItem>
                                 <MenuItem value="End Uses: Residential and Commercial Heating">Residential + Commercial Heating</MenuItem>
                                 <ListSubheader>Other</ListSubheader>
+                                <MenuItem value="Encourage/Discourage">DOE Encouraged/Discouraged Status</MenuItem>
                                 <MenuItem value="Partnership">Partnership Type</MenuItem>
                             </Select>
                         </FormControl>
@@ -373,7 +383,7 @@ const App = () => {
                 </div>
                 <div className='legend-container'>
                     <div className='legend'>
-                        {!partnershipSelected && <div className='legend-colors'>
+                        {!partnershipSelected && !encouragedSelected && <div className='legend-colors'>
                             <div className='legend-item'>
                                 <div className='legend-icon true'>
                                 </div>
@@ -410,6 +420,26 @@ const App = () => {
                                 <div className='legend-icon mixed'>
                                 </div>
                                 <div className='legend-value'>Public-Private Partnership
+                                </div>
+                            </div>
+                        </div>}
+                        {encouragedSelected && <div className='legend-colors'>
+                            <div className='legend-item'>
+                                <div className='legend-icon true'>
+                                </div>
+                                <div className='legend-value'>Concept Encouraged by DOE
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon false'>
+                                </div>
+                                <div className='legend-value'>Concept Discouraged by DOE
+                                </div>
+                            </div>
+                            <div className='legend-item'>
+                                <div className='legend-icon unknown'>
+                                </div>
+                                <div className='legend-value'>No Encouraged/Discouraged Status Known
                                 </div>
                             </div>
                         </div>}
