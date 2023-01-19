@@ -268,7 +268,7 @@ const App = () => {
                         fill = '#c5ced3'
                     }
                     return (
-                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} onClick={() => {handleClick(tooltipValues)}} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
+                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} onClick={() => { handleClick(tooltipValues) }} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
                     )
                 }
 
@@ -292,7 +292,7 @@ const App = () => {
                         //null
                     }
                     return (
-                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke}  onMouseOver={() => { handleMouseOver(tooltipValues) }} onClick={() => {handleClick(tooltipValues)}} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
+                        <path id={feature.properties.code} className={feature.geometry.type + " hover"} key={feature.properties.code} d={path(feature)} fill={fill} stroke={stroke} onMouseOver={() => { handleMouseOver(tooltipValues) }} onClick={() => { handleClick(tooltipValues) }} onMouseOut={handleMouseOut} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }} />
                     )
                 }
 
@@ -316,10 +316,12 @@ const App = () => {
                     }
                     let interimX = feature.geometry.coordinates[0]
                     let interimY = feature.geometry.coordinates[1]
-                    let [x, y] = projection([interimX,interimY])
-
+                    
+                    let [x, y] = projection([interimX, interimY])
+                    
+                    console.log (interimX + " " + x + " " + interimY + " " + y)
                     return (
-                        <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onClick={() => {handleClick(tooltipValues)}} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
+                        <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onClick={() => { handleClick(tooltipValues) }} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
                     )
                 }
             } else {
@@ -466,9 +468,9 @@ const App = () => {
                         </div>
                     </div>
                 </div>
-                <div id="largetooltip" onClick={(event) => {handleExit(event)}}>
-                    <div id='inter'> 
-                        <div id='exit' onClick={(event) => {handleExit(event)}}>╳
+                <div id="largetooltip" onClick={(event) => { handleExit(event) }}>
+                    <div id='inter'>
+                        <div id='exit' onClick={(event) => { handleExit(event) }}>╳
                         </div>
                         <div id='inner'>
                         </div>
