@@ -14,6 +14,9 @@ import { svg } from 'd3'
 
 const App = () => {
 
+
+    console.log("Hydrogen Hubs app, last updated January 30, 10:46 CST")
+
     /* - - - - Theme - - - - */
 
     const rffTheme = createTheme({
@@ -49,12 +52,12 @@ const App = () => {
 
     /* - - - - Map data - - - - */
 
-    const mapUrl = 'https://gist.githubusercontent.com/yuzhuuu/550675f853a26d2c61abdbcebf25e5cb/raw/f6b0a8225680f97d4658d895fbb86a2cfe14cdaa/rffhydrogenhubsmap.json'
-    const mapUrl_tx = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/86667581ac17c231fd5f449ff9433e273b94ecb4/tx_hh.json'
-    const mapUrl_pnw = 'https://gist.githubusercontent.com/yuzhuuu/109e457fb08696990e28d183fe92c95f/raw/1abbf3cb7acd06b4ef267b2fca32afa33ade1324/pnw.json'
-    const mapUrl_nd = 'https://gist.githubusercontent.com/yuzhuuu/3881c5cd404dcf4bdc9379cf4e5996f0/raw/32cb7b49f24c363650e5c986ac9e45a968a9d7a7/ND.json'
-    const mapUrl_mw = 'https://gist.githubusercontent.com/yuzhuuu/c022493b803fb8b409dfe9c6a7eb3f0b/raw/156fff1cbd5d384f6df4e2653a55bada62f7ce01/wishh.json'
-    const raw_csv = 'https://gist.githubusercontent.com/RFForg/8d89580a41b12cdb261b3fa2483cc7b3/raw/699e54cd2c07d939dd66477aaec166907b060e19/hhjan18.csv'
+    const mapUrl = 'https://gist.githubusercontent.com/RFForg/69e29893c577a94c0497734a2e12a152/raw/hydrogenhubs_mapUrl.json'
+    const mapUrl_tx = 'https://gist.githubusercontent.com/RFForg/69e29893c577a94c0497734a2e12a152/raw/hydrogenhubs_mapUrl_tx.json'
+    const mapUrl_pnw = 'https://gist.githubusercontent.com/RFForg/69e29893c577a94c0497734a2e12a152/raw/hydrogenhubs_mapUrl_pnw.json'
+    const mapUrl_nd = 'https://gist.githubusercontent.com/RFForg/69e29893c577a94c0497734a2e12a152/raw/hydrogenhubs_mapUrl_nd.json'
+    const mapUrl_mw = 'https://gist.githubusercontent.com/RFForg/69e29893c577a94c0497734a2e12a152/raw/hydrogenhubs_mapUrl_mw.json'
+    const raw_csv = 'https://gist.githubusercontent.com/RFForg/69e29893c577a94c0497734a2e12a152/raw/hydrogenhubs_raw_csv.csv'
 
     const [mapData, setMapData] = useState({ data: {}, loading: true })
     const [data, setData] = useState(null)
@@ -87,8 +90,12 @@ const App = () => {
     };
 
     useEffect(() => {
+        window.addEventListener('load', handleWindowResize);
         window.addEventListener('resize', handleWindowResize);
-        return () => window.removeEventListener('resize', handleWindowResize);
+        return () => {
+        window.removeEventListener('load', handleWindowResize);
+        window.removeEventListener('resize', handleWindowResize);
+        }
     });
 
     /* - - - - Toggle element - - - - */
@@ -316,10 +323,15 @@ const App = () => {
                     }
                     let interimX = feature.geometry.coordinates[0]
                     let interimY = feature.geometry.coordinates[1]
+
+                    let projected = projection([interimX,interimY])
+
+                    let [x, y] = projected && projected.length > 1 ? projected : [0, 0]
+
+                    if(!projected) {
+                        console.log(projected, interimX, interimY)
+                    }
                     
-                    let [x, y] = projection([interimX, interimY])
-                    
-                    console.log (interimX + " " + x + " " + interimY + " " + y)
                     return (
                         <circle id={feature.properties.code} cx={x} cy={y} r={10} fill={fill} className={feature.geometry.type + " hover"} onClick={() => { handleClick(tooltipValues) }} onMouseOver={() => { handleMouseOver(tooltipValues) }} onMouseOut={() => handleMouseOut()} onScroll={handleMouseOut} onMouseMove={(event) => { handleMouseMove(event) }}></circle>
                     )
